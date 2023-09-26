@@ -98,80 +98,33 @@ export class ContainerComponent implements OnInit {
       adminAuthority.authority.includes('admin:delete') || 
       adminAuthority.authority.includes('admin:read')){
         this.items = [
-          {
-            title: 'Stock Status',
+            {
+            title: 'Activities',
             icon: 'book',
-            link: 'system-parameters/home'
+            link: 'customers/customer-detail'
           },
+          
           {
-            title: 'Daily Sale',
+            title: 'Monthly Subscription',
             icon: 'book',
-            link: 'system-parameters/line-chart'
+            link: 'customers/customer-payment'
           },
           {
-            title: 'Products',
-            icon: 'book',
-            expanded: false,
-            children: [
-              {
-              title: 'Product Delivery',
-              link: 'product/product-delivery'
-              },
-              {
-                title: 'Product Sale',
-                link: 'product/product-sale'
-              },
-              {
-                title: 'Pricing',
-                link: 'product/product-pricing'
-              }
-        
-            ]
+            title: 'Subscriptions',
+            icon: 'person',
+            link: 'subscription/details'
           },
-          {
-            title: 'Users',
-            link: 'product/members',
-            icon: 'person'
-          },
-          {
-            title: 'Report',
-            link: 'reports/sales',
-            icon: 'settings'
-          },
+
+         
         ];
       }
       // eslint-disable-next-line no-dupe-else-if
-      else if(adminAuthority.authority.includes('management:update') || 
-      adminAuthority.authority.includes('management:delete') || 
-      adminAuthority.authority.includes('management:create') || 
-      adminAuthority.authority.includes('management:read')) {
+      else if(adminAuthority.authority.includes('customer:update') || 
+      adminAuthority.authority.includes('customer:delete') || 
+      adminAuthority.authority.includes('customer:create') || 
+      adminAuthority.authority.includes('customer:read')) {
         this.items = [
-          {
-            title: 'Stock Status',
-            icon: 'book',
-            link: 'system-parameters/home'
-          },
-          {
-            title: 'Daily Sale',
-            icon: 'book',
-            link: 'system-parameters/line-chart'
-          },
-          {
-            title: 'Products',
-            icon: 'book',
-            expanded: false,
-            children: [
-              {
-              title: 'Product Delivery',
-              link: 'product/product-delivery'
-              },
-              {
-                title: 'Product Sale',
-                link: 'product/product-sale'
-              }
-        
-            ]
-          }, 
+          
         ];
       }
 

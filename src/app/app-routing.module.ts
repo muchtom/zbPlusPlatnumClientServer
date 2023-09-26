@@ -19,14 +19,12 @@ const routes: Routes = [
           loadChildren: () => import('./ui/system-parameters/system-parameters.module').then(c => c.SystemParametersModule),
         },
           { path: '', redirectTo: '/system-parameters/home', pathMatch: 'full' },
-          {
-            path: 'product',
-            loadChildren:()=> import('./ui/product/product.module').then(c=>c.ProductModule)
-          },
-          {
-            path: 'reports',
-            loadChildren:()=> import('./ui/reports/reports.module').then(c=>c.ReportsModule)
-          }
+        {
+          path: 'customers', loadChildren:()=> import('./ui/customer/customer.module').then(c => c.CustomerModule)
+        },
+        {
+          path: 'subscription', loadChildren:()=> import('./ui/subscription/subscription.module').then(c=> c.SubscriptionModule)
+        }
           // {
           //   path:'meetings',()
           //   loadChildren:()=> import('./ui/meetings/meetings.module').then(c=>c.MeetingsModule)

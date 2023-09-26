@@ -13,8 +13,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { ProductPricingComponent } from './components/product-pricing/product-pricing.component';
 import { SetProductPricingComponent } from './components/set-product-pricing/set-product-pricing.component';
-import { MemberComponent } from './components/member/member.component';
-import { SetMemberComponent } from './components/set-member/set-member.component';
+import { SetMemberComponent } from '../customer/componets/set-member/set-member.component';
 
 
 @NgModule({
@@ -25,7 +24,7 @@ import { SetMemberComponent } from './components/set-member/set-member.component
     SetProductSaleComponent,
     ProductPricingComponent,
     SetProductPricingComponent,
-    MemberComponent,
+
     SetMemberComponent
   ],
   imports: [

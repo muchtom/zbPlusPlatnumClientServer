@@ -1,0 +1,31 @@
+<nb-card accent="info" class="col-md-10 mx-auto">
+    <nb-card-header>Add Subscription Price
+
+    </nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="SalesForm">
+            <div class="row">
+                <div class="form-group">
+                    <label>Code</label>
+                    <nb-select  fullWidth id="meetingType" [(ngModel)]="selectedProductCode" formControlName="subscription">
+                        <nb-option *ngFor="let code  of productCodes" [value]="code.value">
+                         {{code.name}}
+                        </nb-option>
+                    </nb-select>
+                </div> 
+             
+            </div>
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="number" row="5" nbInput fullWidth formControlName="amount" placeholder="" />
+            </div>
+            <div class="row"> <nb-card-footer>
+                <button class="cancel" nbButton status="danger" (click)="dismiss()">Cancel</button>
+                <button nbButton status="success"  (click)="submit()">Submit</button>
+            </nb-card-footer>
+
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>
+

@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     
 
     ngOnInit() {
-      this.url =`http://3.142.124.102:8050/api/v1/auth/authenticate`
+      this.url =`http://localhost:8004/api/v1/auth/authenticate`
         this.form = this.formBuilder.group({
             email: ['', Validators.required],
             password: ['', Validators.required],

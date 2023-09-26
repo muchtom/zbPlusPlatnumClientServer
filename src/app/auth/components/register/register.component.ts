@@ -34,36 +34,20 @@ export class RegisterComponent implements OnInit {
     
 
     ngOnInit() {
-      this.url =`http://3.142.124.102:8050/api/v1/auth/register`
+      this.url =`http://localhost:8004/api/v1/auth/register`
         this.form = this.formBuilder.group({
             firstName: ['',Validators.required],
             lastName: ['',Validators.required],
             email: ['', Validators.required],
             password: ['', Validators.required],
+            bankAccount: ['', Validators.required],
+            idNumber: ['', Validators.required],
         });
     }
     // convenience getter for easy access to form fields
     get f() { return this.form.controls; }
 
-    // register(){
-    //     this.http.post(`${this.url}`,this.form.value)
-    //     .subscribe({
-    //         next: (response: any) => {
-    //           console.log(response);
-    //           if (response.token) {
-    //              this.guard.service.saveToken(response.token);
-    //             let returnUrl = `${this.route.snapshot.queryParams['returnUrl']}`;
-    //             returnUrl = returnUrl !== 'undefined' ? returnUrl : ''
-    //             location.href = returnUrl ? returnUrl : '/';
-    //             return;
-    //           }
-    //            this.notification.showError("Failed");
-    //         },
-    //         error: (err: any) => {
-    //           this.error=true
-    //         },
-    //       });
-    // }
+    
     register() {
       this.http.post(`${this.url}`, this.form.value)
       .subscribe({

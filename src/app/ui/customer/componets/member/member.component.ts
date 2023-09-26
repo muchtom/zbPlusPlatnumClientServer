@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
-import { MemberService } from '../../service/member.service';
-import { SetMemberComponent } from '../set-member/set-member.component';
+import { MemberService } from '../../services/member.service';
+
 
 @Component({
   selector: 'app-member',
@@ -62,15 +62,15 @@ export class MemberComponent implements OnInit {
   }
 
   open(data:any){
-    const dialogRef = this.dialogService.open(SetMemberComponent,{
-      context:{
-        data:data,
-      },
-    });
-    dialogRef.onClose.subscribe((response)=>{
-      this.ngOnInit();
-      this.allPrices;
-    });
+    // const dialogRef = this.dialogService.open(SetMemberComponent,{
+    //   context:{
+    //     data:data,
+    //   },
+    // });
+    // dialogRef.onClose.subscribe((response)=>{
+    //   this.ngOnInit();
+    //   this.allPrices;
+    // });
   }
 
   onCustomAction(event:any){
@@ -83,7 +83,7 @@ export class MemberComponent implements OnInit {
   edit(data:any){
     const selectedItem = data
     console.log(selectedItem);
-    this.dialogServic.openDialog(selectedItem);
+    // this.dialogServic.openDialog(selectedItem);
     this.allPrices;
     
   }
