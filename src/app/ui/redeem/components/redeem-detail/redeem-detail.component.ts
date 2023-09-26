@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
-import { SubscriptionService } from '../../service/subscription.service';
+import { RedeemService } from '../../service/redeem.service';
 import { HttpClient } from '@angular/common/http';
-import { SetSubscriptionComponent } from '../set-subscription/set-subscription.component';
+import { SetRedeemComponent } from '../set-redeem/set-redeem.component';
 
 @Component({
-  selector: 'app-subscription-details',
-  templateUrl: './subscription-details.component.html',
-  styleUrls: ['./subscription-details.component.scss']
+  selector: 'app-redeem-detail',
+  templateUrl: './redeem-detail.component.html',
+  styleUrls: ['./redeem-detail.component.scss']
 })
-export class SubscriptionDetailsComponent implements OnInit {
+export class RedeemDetailComponent implements OnInit {
 
   settings = {
     actions: {
@@ -19,18 +19,18 @@ export class SubscriptionDetailsComponent implements OnInit {
       add: false,
       delete: false,
       edit: false,
-      custom:[
-         {
-          name:'edit',
-          title:
-          '<i class="fa-regular fa-pen-to-square fa-2xs" style="color:#28661c3"></i>',
-         },
-        //  {
-        //   name:'viewRecord',
-        //   title:
-        //   '<i class="fa-regular fa-light fa-eye fa-2xs" style="color: #1660df;"></i>',
-        //  }
-      ],
+      // custom:[
+      //    {
+      //     name:'edit',
+      //     title:
+      //     '<i class="fa-regular fa-pen-to-square fa-2xs" style="color:#28661c3"></i>',
+      //    },
+      //    {
+      //     name:'viewRecord',
+      //     title:
+      //     '<i class="fa-regular fa-light fa-eye fa-2xs" style="color: #1660df;"></i>',
+      //    }
+      // ],
       position: 'right'
     },
     edit: {
@@ -40,32 +40,32 @@ export class SubscriptionDetailsComponent implements OnInit {
       confirmSave: true
     },
     columns: {
-      subscription: {
-        title: 'Subscription Type',
+      date: {
+        title: 'Date ',
       },
       amount: {
-        title: 'Package Amount'
+        title: 'Amount'
       },
     },
   };
 
   allDeliveries:any;
   constructor( private service:ApiService,private dialogService: NbDialogService,
-    private alertService: AlertService, private dialogServic: SubscriptionService, private http:HttpClient){}
+    private alertService: AlertService, private dialogServic: RedeemService, private http:HttpClient){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8004/zbLoyalty/getAllSubscriptionPrices
+    const user = JSON.parse(sessionStorage.getItem('user') ?? '{}');
+    this.http.get(`http://localhost:8004/zbLoyalty/redeem/getRedeemForSpecificUser/${user.bankAccount}
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);
-      
       this.allDeliveries;
     })
   }
 
   open(data:any){
-    const dialogRef = this.dialogService.open(SetSubscriptionComponent,{
+    const dialogRef = this.dialogService.open(SetRedeemComponent,{
       context:{
-        data:data,
+        // data:data,
       },
     });
     dialogRef.onClose.subscribe((response)=>{
@@ -95,7 +95,5 @@ export class SubscriptionDetailsComponent implements OnInit {
   showError(){
     this.alertService.showError("This is an error message");
   }
-
- 
 
 }

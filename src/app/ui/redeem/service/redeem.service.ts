@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { SetSubscriptionComponent } from '../components/set-subscription/set-subscription.component';
 import { NbDialogService } from '@nebular/theme';
+import { SetRedeemComponent } from '../components/set-redeem/set-redeem.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SubscriptionService {
+export class RedeemService {
 
   constructor(private dialogService: NbDialogService) { }
 
   openDialog(data:any){
-    const dialogRef = this.dialogService.open(SetSubscriptionComponent,{
+    const dialogRef = this.dialogService.open(SetRedeemComponent,{
       context: {
-        data: data,
+        // data: data,
       },
     });
     dialogRef.onClose.subscribe((response) =>{

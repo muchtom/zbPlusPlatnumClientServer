@@ -114,6 +114,16 @@ export class ContainerComponent implements OnInit {
             icon: 'person',
             link: 'subscription/details'
           },
+          {
+            title: 'Activity Schedule',
+            icon: 'book',
+            link: 'admin/admin-activity'
+          },
+          {
+            title: 'Reedem',
+            icon: 'book',
+            link: 'redeem/redeem-detail'
+          }
 
          
         ];

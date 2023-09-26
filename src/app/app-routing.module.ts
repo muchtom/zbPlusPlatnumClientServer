@@ -24,6 +24,12 @@ const routes: Routes = [
         },
         {
           path: 'subscription', loadChildren:()=> import('./ui/subscription/subscription.module').then(c=> c.SubscriptionModule)
+        },
+        {
+          path: 'admin', loadChildren:()=> import('./ui/admin/admin.module').then(c=> c.AdminModule)
+        },
+        {
+          path: 'redeem', loadChildren:()=> import('./ui/redeem/redeem.module').then(c => c.RedeemModule)
         }
           // {
           //   path:'meetings',()

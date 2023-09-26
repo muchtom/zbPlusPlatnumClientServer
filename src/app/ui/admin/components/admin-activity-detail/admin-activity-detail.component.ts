@@ -1,17 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
-import { SubscriptionService } from '../../service/subscription.service';
-import { HttpClient } from '@angular/common/http';
-import { SetSubscriptionComponent } from '../set-subscription/set-subscription.component';
+import { AdminDetailService } from '../../services/admin-detail.service';
+import { SetAdminActivityDetailComponent } from '../set-admin-activity-detail/set-admin-activity-detail.component';
 
 @Component({
-  selector: 'app-subscription-details',
-  templateUrl: './subscription-details.component.html',
-  styleUrls: ['./subscription-details.component.scss']
+  selector: 'app-admin-activity-detail',
+  templateUrl: './admin-activity-detail.component.html',
+  styleUrls: ['./admin-activity-detail.component.scss']
 })
-export class SubscriptionDetailsComponent implements OnInit {
+export class AdminActivityDetailComponent implements OnInit {
 
   settings = {
     actions: {
@@ -40,21 +40,26 @@ export class SubscriptionDetailsComponent implements OnInit {
       confirmSave: true
     },
     columns: {
+      zbAchiever: {
+        title: 'ZB Archiver',
+      },
       subscription: {
-        title: 'Subscription Type',
+        title: 'Subscription'
       },
-      amount: {
-        title: 'Package Amount'
+      name:{
+         title: 'Activity Name'
       },
+      points:{
+        title: 'Points'
+      }
     },
   };
 
   allDeliveries:any;
-  constructor( private service:ApiService,private dialogService: NbDialogService,
-    private alertService: AlertService, private dialogServic: SubscriptionService, private http:HttpClient){}
+  constructor(private http:HttpClient, private service:ApiService,private dialogService: NbDialogService,
+    private alertService: AlertService, private dialogServic: AdminDetailService){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8004/zbLoyalty/getAllSubscriptionPrices
-    `).subscribe((response: any)=>{
+    this.http.get(`http://localhost:8004/zbLoyalty/getAllActivities`).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);
       
@@ -63,7 +68,7 @@ export class SubscriptionDetailsComponent implements OnInit {
   }
 
   open(data:any){
-    const dialogRef = this.dialogService.open(SetSubscriptionComponent,{
+    const dialogRef = this.dialogService.open(SetAdminActivityDetailComponent,{
       context:{
         data:data,
       },
@@ -96,6 +101,5 @@ export class SubscriptionDetailsComponent implements OnInit {
     this.alertService.showError("This is an error message");
   }
 
- 
 
 }
