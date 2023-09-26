@@ -123,6 +123,11 @@ export class ContainerComponent implements OnInit {
             title: 'Reedem',
             icon: 'book',
             link: 'redeem/redeem-detail'
+          },
+          {
+            title: 'Users',
+            icon: 'person',
+            link: 'member/member-detail'
           }
 
          
@@ -134,7 +139,27 @@ export class ContainerComponent implements OnInit {
       adminAuthority.authority.includes('customer:create') || 
       adminAuthority.authority.includes('customer:read')) {
         this.items = [
+          {
+            title: 'Activities',
+            icon: 'book',
+            link: 'customers/customer-detail'
+          },
           
+          {
+            title: 'Monthly Subscription',
+            icon: 'book',
+            link: 'customers/customer-payment'
+          },
+          {
+            title: 'Subscriptions',
+            icon: 'person',
+            link: 'subscription/details'
+          },
+          {
+            title: 'Reedem',
+            icon: 'book',
+            link: 'redeem/redeem-detail'
+          },    
         ];
       }
 

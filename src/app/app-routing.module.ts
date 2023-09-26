@@ -30,6 +30,9 @@ const routes: Routes = [
         },
         {
           path: 'redeem', loadChildren:()=> import('./ui/redeem/redeem.module').then(c => c.RedeemModule)
+        },
+        {
+          path: 'member', loadChildren:()=> import('./ui/member/member.module').then(c=> c.MemberModule)
         }
           // {
           //   path:'meetings',()
