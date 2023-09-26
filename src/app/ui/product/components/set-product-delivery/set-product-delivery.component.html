@@ -1,0 +1,42 @@
+<nb-card accent="info" class="col-md-10 mx-auto">
+    <nb-card-header>Add Product Delivery
+
+    </nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="SalesForm">
+            <div class="row">
+                <div class="form-group">
+                    <label>Code</label>
+                    <nb-select  fullWidth id="meetingType" [(ngModel)]="selectedProductCode" formControlName="code">
+                        <nb-option *ngFor="let code  of productCodes" [value]="code.value">
+                         {{code.name}}
+                        </nb-option>
+                    </nb-select>
+                </div> 
+                <!-- <div class="form-group col-md-6">
+                    <label>Date</label>
+                    <input row="5"  nbInput  [nbDatepicker]="date" fullWidth formControlName="date" placeholder="" />
+                    <nb-datepicker #date></nb-datepicker>
+                  
+                </div> -->
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label>Amount</label>
+                    <input type="number" row="5" nbInput fullWidth formControlName="amount" placeholder="" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Cost</label>
+                    <input type="number" row="5" nbInput fullWidth formControlName="cost" placeholder="" />
+                </div>
+            </div>
+            <div class="row"> <nb-card-footer>
+                <button class="cancel" nbButton status="danger" (click)="dismiss()">Cancel</button>
+                <button nbButton status="success" [disabled]="SalesForm.invalid" (click)="submit()">Submit</button>
+            </nb-card-footer>
+
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>
+

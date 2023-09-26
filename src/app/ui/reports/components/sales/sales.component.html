@@ -1,0 +1,60 @@
+<nb-card status="primary" accent="info">
+  <nb-card-header>
+   Sales Report
+    </nb-card-header>
+
+    <nb-card-body>
+      <nb-card>
+        <div class="report" style="padding: 10px;">
+      <form [formGroup]="BalanceSheetReportForm">
+        <div class="row">
+  <div class="form-group col-md-3">
+     <div class="submit" style="padding-top: 19px;">
+  <button nbButton status="primary" [disabled]="BalanceSheetReportForm.invalid" (click)="loadReport()">Generate</button>
+  </div>
+        </div>
+      </div>
+
+      </form>
+    </div>
+  </nb-card>
+     <ngx-extended-pdf-viewer  #pdfViewer [customToolbar]="additionalButtons"  [backgroundColor]="'#f6f6f6'"
+      [showBorders]="true" [src]="url"  [height]="'65vh'" [showFindButton]="false"
+      [useBrowserLocale]="true" [zoom]="'80%'" [textLayer]="true"
+      [filenameForDownload]="reportName">
+</ngx-extended-pdf-viewer>
+
+
+<ng-template #additionalButtons>
+  <div id="toolbarViewer" >
+    <div id="toolbarViewerRight">
+      <nb-button-group>
+        <button nbButton status="primary" id="download">
+          <nb-icon icon="download"></nb-icon>
+
+        </button>
+
+        <button nbButton   id="presentationMode" >
+          <nb-icon icon="expand"></nb-icon>
+        </button>
+        <button nbButton  id="print" status="success">
+          <nb-icon icon="printer"></nb-icon>
+        </button>
+        <button nbButton id="zoomIn" (click)="zoomIn()">
+          <nb-icon icon="plus"></nb-icon>
+        </button>
+
+        <button nbButton id="zoomOut" (click)="zoomOut()">
+          <nb-icon icon="minus"></nb-icon>
+        </button>
+          <!-- New mail button -->
+          <button nbButton id="sendMail" (click)="sendMail()">
+            <nb-icon icon="email"></nb-icon>
+          </button>
+      </nb-button-group>
+      <div class="verticalToolbarSeparator hiddenSmallView"></div>
+    </div>
+  </div>
+</ng-template>
+    </nb-card-body>
+</nb-card>

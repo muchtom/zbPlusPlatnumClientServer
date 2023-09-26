@@ -1,0 +1,28 @@
+
+
+<nb-layout>
+  <nb-layout-header fixed>
+     <div class="header-container">
+</div>
+<img src="assets/logo.jpeg" width="2500px" height="50px" alt="">
+<div class="right" style="padding-left: 800px;">
+    <nb-actions size="small">
+        <nb-action class="user-action">
+          <div class="icon-and-user">
+            
+            <nb-icon (click)="logout()" icon="power"></nb-icon>
+            <nb-user  [onlyPicture]="false" name="" [title]="userDetails" [picture]="'./assets/user.png'" nbContextMenuTag="user-context-menu">
+            </nb-user>
+          </div>
+        </nb-action>
+      </nb-actions>
+</div>
+</nb-layout-header>
+
+<nb-sidebar> <nb-menu [items]="items">
+</nb-menu></nb-sidebar>
+  <nb-layout-column>
+  <router-outlet></router-outlet>
+  </nb-layout-column>
+</nb-layout>
+
