@@ -1,0 +1,93 @@
+<div class="question">
+    <div class="que1">
+      <div class="head">
+        <div class="image">
+          <img src="assets/zb2.png" width="100" alt="">
+        </div>
+        <div class="quiz-header mt-2">
+          <h4 class="text-xl font-bold">ZB Archiver Quiz</h4>
+          <span>Welcome :: {{name}}</span>
+        </div>
+      </div>
+  
+      <ng-container *ngIf="!isQuizCompleted">
+        <div class="que3">
+          <div class="score">
+            <h5>{{points}} Points</h5>
+          </div>
+          <div class="question-remaining">
+            <span>Question {{currentQuestion + 1}} of {{questionList.length}}</span>
+          </div>
+          <div class="timer">
+            <h5>{{counter}} sec ⌛</h5>
+          </div>
+        </div>
+        <div class="q5">
+          <div class="q6"
+            [ngStyle]="{'width': progress + '%' }"> {{progress}}%</div>
+        </div>
+        <div class="question mt-6">
+          <div class="q7">
+            <h3 class="text-xl font-bold">{{questionList[currentQuestion]?.questionText}}</h3>
+          </div>
+        </div>
+        <div class="options mt-2">
+          <ol class="list-decimal ml-5" *ngFor="let option of questionList[currentQuestion]?.options">
+            <li class="mt-2" (click)="answer(currentQuestion+1,option)">
+              <div appChangeBg [isCorrect]="option.correct"
+                class="q8">
+                {{option.text}}
+              </div>
+            </li>
+  
+          </ol>
+        </div>
+        <div class="flex justify-between mt-10">
+          <button
+            class="q9"
+            (click)="prevQuestion()" [disabled]="currentQuestion === 0">
+            <svg class="w-10 h-10 " fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="5" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button
+            class="q10"
+            (click)="resetQuiz()">
+            <svg class="w-10 h-10 " fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+              </path>
+            </svg>
+          </button>
+          <button
+            class="q12"
+            (click)="nextQuestion()" [disabled]="currentQuestion === questionList.length -1">
+            <svg class="w-10 h-10 " fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="5" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </ng-container>
+  
+      <ng-container *ngIf="isQuizCompleted">
+        <div class="c1`">
+          <div class="c2">
+            <h3 class="text-xl font-bold">Congratulations!!
+              <br>You have completed the quiz<br> Below is your result:
+            </h3>
+            <p>Total Questions Attempted : {{questionList.length}} </p>
+            <p>Total Correct Answered : {{correctAnswer}} </p>
+            <p>Total Wrong Answered : {{incorrectAnswer}} </p>
+            <p class="text-xl font-bold">Your Score : {{points}} Points </p>
+          </div>
+          <button class="btn-complete-quiz" (click)="completedAll()">Finish Quiz</button>
+        </div>
+      </ng-container>
+  
+  
+    </div>
+  </div>
+  

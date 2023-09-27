@@ -1,0 +1,141 @@
+.question{
+    width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2.5rem;
+  display: flex;
+}
+.que1{
+    background-color: #ffffff;
+    padding: 2rem;
+    border-width: 1px;
+    border-radius: 0.75rem;
+    border-color: #bfc9d4;
+    width: 100%;
+    margin-left: 1.25rem; /* Equivalent to 5 units on the Tailwind CSS spacing scale */
+    margin-right: 1.25rem; 
+
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem; 
+}
+.que3{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 0.75rem; /* Equivalent to 3 units on the Tailwind CSS spacing scale */
+    padding-bottom: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+.q5{
+    width: 100%;
+    background-color: #edf2f7;
+    border-radius: 9999px;
+}
+.q6{
+    background-color: #2563eb;
+    height: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #ebf4ff;
+    text-align: center;
+    padding: 0.125rem;
+    line-height: 1;
+    border-radius: 9999px;
+}
+.q7{
+    background-color: #ffffff;
+    padding-left: 0.75rem; /* Equivalent to 3 units on the Tailwind CSS spacing scale */
+  padding-right: 0.75rem;
+  padding-top: 1rem; /* Equivalent to 4 units on the Tailwind CSS spacing scale */
+  padding-bottom: 1rem;
+  border-width: 1px;
+  border-radius: 0.75rem;
+  border-color: #bfc9d4;
+  width: 100%;
+}
+.q8{
+    padding-left: 0.75rem; /* Equivalent to 3 units on the Tailwind CSS spacing scale */
+  padding-right: 0.75rem;
+  padding-top: 1rem; /* Equivalent to 4 units on the Tailwind CSS spacing scale */
+  padding-bottom: 1rem;
+  border-width: 1px;
+  border-radius: 0.75rem;
+  border-color: #bfc9d4;
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+.q8:hover{
+    transition-property: all;
+    transition-duration: 500ms;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.q9{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+    color: #a5b4fc;
+    transition-property: color;
+    transition-duration: 150ms;
+    background-color: #2563eb;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+
+}
+.q9:hover{
+    background-color: #1e429f;
+}
+.q10{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+    color: #a5b4fc;
+    transition-property: color;
+    transition-duration: 150ms;
+    background-color: #2563eb;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    background-color: #1e429f;
+}
+.q12{
+    display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2rem; /* Equivalent to w-16 */
+height: 2rem; /* Equivalent to h-16 */
+margin-right: 0.5rem; /* Equivalent to mr-2 */
+color: #a5b4fc; /* Equivalent to text-indigo-100 */
+transition-property: color; /* Equivalent to transition-colors */
+transition-duration: 150ms; /* Equivalent to duration-150 */
+background-color: #2563eb; /* Equivalent to bg-blue-700 */
+border-radius: 9999px; /* Equivalent to rounded-full */
+box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+
+}
+.q12:hover{
+    background-color: #1e429f;
+}
+.c1{
+    display: flex;
+  justify-content: center;
+}
+.c2{
+    text-align: center;
+    flex: 0 0 50%;
+    max-width: 50%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}

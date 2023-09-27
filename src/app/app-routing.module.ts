@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContainerComponent } from './ui/layout/pages/container/container.component';
 import { AuthGuard } from './shared/shared/gaurd/auth-guard';
 import { LoginComponent } from './auth/components/login/login.component';
+import { QuestionComponent } from './ui/quiz/components/question/question.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,13 @@ const routes: Routes = [
         },
         {
           path: 'member', loadChildren:()=> import('./ui/member/member.module').then(c=> c.MemberModule)
+        },
+        {
+          path: 'quiz', loadChildren:()=> import('./ui/quiz/quiz.module').then(c=> c.QuizModule)
+        },
+        {
+          path: 'question',
+          component: QuestionComponent,
         }
           // {
           //   path:'meetings',()

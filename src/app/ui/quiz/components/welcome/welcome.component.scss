@@ -1,0 +1,41 @@
+.baba{
+    background-color: white;
+    padding: 2rem;
+    border-width: 1px;
+  border-style: solid;
+  border-color: #e2e8f0;
+  border-radius: 1.5rem;
+  border-color: #bfc9d4;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  content: "\00a0"; /* Used to generate an empty pseudo-element to apply the shadow */
+  margin-left: 1.25rem;
+  margin-right: 1.25rem; 
+}
+.welcome{
+    font-size: 2.25rem;
+    font-weight: 800;
+    text-align: left;
+}
+.button1{
+    transition-property: all;
+    margin-top: 1.25rem;
+    transition-timing-function: ease-in-out;
+    transition-delay: 150ms;
+    background-color: #3b82f6;
+    box-shadow: 0 10px 15px rgba(59, 130, 246, 0.15);
+    padding-top: 0.5rem; /* Equivalent to 2 units on the Tailwind CSS spacing scale */
+    padding-bottom: 0.5rem; /* Equivalent to 2 units on the Tailwind CSS spacing scale */
+    padding-top: 0.5rem; /* Equivalent to 2 units on the Tailwind CSS spacing scale */
+    padding-bottom: 0.5rem; /* Equivalent to 2 units on the Tailwind CSS spacing scale */
+    border-radius: 0.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+.button1:hover{
+    transform: scale(1.1);
+    transform: translateY(-0.25rem);
+    background-color: #2563eb;
+}
+
+

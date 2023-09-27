@@ -56,7 +56,9 @@ export class CustomerDetailComponent implements OnInit {
   };
 
   customerDetails:any;
-   userDetails:any
+  totalActivePoints!:any;
+   userDetails:any;
+   bankAccountNumber!:any;
   constructor(private http:HttpClient, private service:ApiService,private dialogService: NbDialogService,
     private alertService: AlertService, private dialogServic: CustomerService){}
   ngOnInit():void {
@@ -67,8 +69,9 @@ export class CustomerDetailComponent implements OnInit {
     this.http.get(`http://localhost:8004/zbLoyalty/getUserActivityInfo/${user.bankAccount}`).subscribe((response: any)=>{
       this.customerDetails = response;
       console.log(this.customerDetails);
-      
+      this.bankAccountNumber= user.bankAccount;
       this.customerDetails;
+      this.getActivePoints();
     })
   }
 
@@ -82,6 +85,13 @@ export class CustomerDetailComponent implements OnInit {
       this.ngOnInit();
       this.customerDetails;
     });
+  }
+
+  getActivePoints(){
+    this.http.get(`http://localhost:8004/zbLoyalty/getCustomerPoints/${this.bankAccountNumber}`).subscribe((response: any) =>{
+      this.totalActivePoints = response;
+      console.log(this.totalActivePoints);
+    })
   }
 
   onCustomAction(event:any){

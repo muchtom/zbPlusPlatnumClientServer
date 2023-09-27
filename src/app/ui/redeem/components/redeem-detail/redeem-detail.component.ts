@@ -44,7 +44,7 @@ export class RedeemDetailComponent implements OnInit {
         title: 'Date ',
       },
       amount: {
-        title: 'Amount'
+        title: 'Deducted Points'
       },
     },
   };

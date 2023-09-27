@@ -120,6 +120,11 @@ export class ContainerComponent implements OnInit {
             link: 'admin/admin-activity'
           },
           {
+            title: 'Quiz',
+            icon: 'book',
+            link: 'quiz/welcome-to-quiz'
+          },
+          {
             title: 'Reedem',
             icon: 'book',
             link: 'redeem/redeem-detail'
@@ -150,11 +155,11 @@ export class ContainerComponent implements OnInit {
             icon: 'book',
             link: 'customers/customer-payment'
           },
-          {
-            title: 'Subscriptions',
-            icon: 'person',
-            link: 'subscription/details'
-          },
+          // {
+          //   title: 'Subscriptions',
+          //   icon: 'person',
+          //   link: 'subscription/details'
+          // },
           {
             title: 'Reedem',
             icon: 'book',
