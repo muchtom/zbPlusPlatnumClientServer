@@ -73,7 +73,7 @@ export class RegisterComponent implements OnInit {
   visitToLoginPage(){
   console.log("bliss");
   
-    this.router.navigate(['/login']);
+    this.router.navigate(['/log']);
       
   }
 

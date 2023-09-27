@@ -1,16 +1,16 @@
 .background-radial-gradient {
     background-color: hsl(219, 39%, 49%);
     background-image: radial-gradient(650px circle at 0% 0%,
-        hsl(0, 69%, 49%) 15%,
-        hsl(10, 57%, 45%) 35%,
-        hsl(218, 41%, 20%) 75%,
-        hsl(7, 61%, 55%) 80%,
+        hsl(95, 87%, 52%) 15%,
+        hsl(109, 66%, 59%) 35%,
+        hsl(113, 56%, 63%) 75%,
+        hsl(102, 74%, 56%) 80%,
         transparent 100%),
       radial-gradient(1250px circle at 100% 100%,
-        hsl(218, 41%, 45%) 15%,
-        hsl(218, 41%, 30%) 35%,
-        hsl(218, 41%, 20%) 75%,
-        hsl(218, 41%, 19%) 80%,
+        hsl(147, 47%, 48%) 15%,
+        hsl(152, 78%, 59%) 35%,
+        hsl(96, 55%, 43%) 75%,
+        hsl(151, 76%, 36%) 80%,
         transparent 100%);
   }
   
@@ -19,7 +19,7 @@
     width: 220px;
     top: -60px;
     left: -130px;
-    background: radial-gradient(#d7d2da, #645d68);
+    background: radial-gradient(#0fc63c, #645d68);
     overflow: hidden;
   }
   

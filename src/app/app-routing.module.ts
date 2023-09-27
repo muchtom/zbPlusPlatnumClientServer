@@ -18,7 +18,7 @@ const routes: Routes = [
           path: 'system-parameters',
           loadChildren: () => import('./ui/system-parameters/system-parameters.module').then(c => c.SystemParametersModule),
         },
-          { path: '', redirectTo: '/system-parameters/home', pathMatch: 'full' },
+          // { path: '', redirectTo: '/system-parameters/home', pathMatch: 'full' },
         {
           path: 'customers', loadChildren:()=> import('./ui/customer/customer.module').then(c => c.CustomerModule)
         },

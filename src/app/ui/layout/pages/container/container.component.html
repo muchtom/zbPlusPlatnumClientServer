@@ -1,7 +1,7 @@
 
 
-<nb-layout>
-  <nb-layout-header fixed>
+<nb-layout >
+  <nb-layout-header style="background-color: rgb(63, 67, 65);" fixed>
      <div class="header-container">
 </div>
 <img src="assets/zb2.png" width="8500px" height="50px" alt="">
@@ -11,7 +11,7 @@
           <div class="icon-and-user">
             
             <nb-icon (click)="logout()" icon="power"></nb-icon>
-            <nb-user  [onlyPicture]="false" name="" [title]="userDetails" [picture]="'./assets/user.png'" nbContextMenuTag="user-context-menu">
+            <nb-user   [onlyPicture]="false" name="" [title]="userDetails" [picture]="'./assets/user.png'" nbContextMenuTag="user-context-menu">
             </nb-user>
           </div>
         </nb-action>
@@ -19,7 +19,7 @@
 </div>
 </nb-layout-header>
 
-<nb-sidebar> <nb-menu [items]="items">
+<nb-sidebar style="background-color: rgb(61, 190, 79);"> <nb-menu [items]="items">
 </nb-menu></nb-sidebar>
   <nb-layout-column>
   <router-outlet></router-outlet>
