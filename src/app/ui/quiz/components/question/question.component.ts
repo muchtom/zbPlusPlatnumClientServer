@@ -21,175 +21,175 @@ export class QuestionComponent implements OnInit {
   isQuizCompleted: boolean = false;
   questions = [
     {
-      "questionText": "Which of the following does TypeScript use to specify types?",
+      "questionText": "When can we say that we are not healthy?",
       "options": [
         {
-          "text": ":",
+          "text": "When we constantly suffer from headaches due to a stressful life",
           "correct": true
         },
         {
-          "text": ";"
+          "text": "When we have a positive outlook towards life"
         },
         {
-          "text": "!"
+          "text": "When we are able to cope well with the social pressure"
         },
         {
-          "text": "&"
+          "text": "When we feel good physically"
         }
       ],
-      "explanation": "TS uses a colon (:) to separate the property name from the property type"
+      "explanation": "When we constantly suffer from headaches due to a stressful life"
     },
     {
-      "questionText": "Which of the following is NOT a type used in TypeScript?",
+      "questionText": "____ is a disorder or bad functioning (malfunction of mind or body) which leads to departure of good health",
       "options": [
         {
-          "text": "number"
+          "text": "Physical disease"
         },
         {
-          "text": "string"
+          "text": "Health"
         },
         {
-          "text": "boolean"
+          "text": "Disease"
         },
         {
-          "text": "enum",
+          "text": "Infectious disease",
           "correct": true
         }
       ],
-      "explanation": "enum is not used as a type in TypeScript"
+      "explanation": "Infectious disease"
     },
     {
-      "questionText": "How can we specify properties and methods for an object in TypeScript?",
+      "questionText": "Disease of the heart, joints and nervous system are called",
       "options": [
         {
-          "text": "Use classes."
+          "text": "Degenerative diseases"
         },
         {
-          "text": "Use interfaces.",
+          "text": "Communicable diseases",
           "correct": true
         },
         {
-          "text": "Use enums."
+          "text": "Deficiency diseases"
         },
         {
-          "text": "Use async/await."
+          "text": "Mental diseases"
         }
       ],
-      "explanation": "interfaces are typically used to list the properties and methods for an object"
+      "explanation": "Mental diseases"
     },
     {
-      "questionText": "How else can Array<number> be written in TypeScript?",
+      "questionText": " Hemophilia disease can be transferred through _____",
       "options": [
         {
-          "text": "@number"
+          "text": "Heredity"
         },
         {
-          "text": "number[]",
+          "text": "Vector",
           "correct": true
         },
         {
-          "text": "number!"
+          "text": "Vehicle"
         },
         {
-          "text": "number?"
+          "text": "Pollutant"
         }
       ],
-      "explanation": "number[] is another way of writing Array<number> in TypeScript"
+      "explanation": "A bacterial disease is"
     },
     {
-      "questionText": "In which of these does a class take parameters?",
+      "questionText": "A bacterial disease is",
       "options": [
         {
-          "text": "constructor",
+          "text": "Tuberculosis",
           "correct": true
         },
         {
-          "text": "destructor"
+          "text": "Polio"
         },
         {
-          "text": "import"
+          "text": "Influenza"
         },
         {
-          "text": "subscribe"
+          "text": " All of the above"
         }
       ],
-      "explanation": "a constructor is used by a class to take in parameters"
+      "explanation": " All of the above"
     },
     {
-      "questionText": "Which is NOT an access modifier?",
+      "questionText": "Scurvy disease is caused by the deficiency of vitamin",
       "options": [
         {
-          "text": "private"
+          "text": "Vitamin C"
         },
         {
-          "text": "protected"
+          "text": "Vitamin A"
         },
         {
-          "text": "public"
+          "text": "Vitamin D"
         },
         {
-          "text": "async",
+          "text": "Vitamin K",
           "correct": true
         }
       ],
-      "explanation": "async is not used as an access modifier type in TypeScript"
+      "explanation": "Vitamin K"
     },
     {
-      "questionText": "Which keyword allows us to share information between files in TypeScript?",
+      "questionText": "Which of the following is not dimension of health?",
       "options": [
         {
-          "text": "import"
+          "text": "Nutritional"
         },
         {
-          "text": "export",
+          "text": "Physical",
           "correct": true
         },
         {
-          "text": "async"
+          "text": "Social"
         },
         {
-          "text": "constructor"
+          "text": "Mental"
         }
       ],
-      "explanation": "the export keyword allows for the information to be transmitted between files"
+      "explanation": "Mental"
     },
     {
-      "questionText": "Which is an array method to generate a new array based on a condition?",
+      "questionText": "Which diseases can be transmitted from infected to uninfected people?",
       "options": [
         {
-          "text": "filter",
+          "text": "Cholera and tuberculosis",
           "correct": true
         },
         {
-          "text": "map"
+          "text": "Lung cancer and tuberculosis"
         },
         {
-          "text": "async"
+          "text": "Whooping cough and sickle cell anemia"
         },
         {
-          "text": "enum"
+          "text": "Sickle cell anemia and cholera"
         }
       ],
-      "explanation": "filter is a method used to conditionally create a new array"
+      "explanation": "Sickle cell anemia and cholera"
     },
     {
-      "questionText": "How is a property accessible within a class?",
+      "questionText": "Which of the following diseases is transmitted by an insect vector?",
       "options": [
         {
-          "text": "Using this.propertyName",
+          "text": "Malaria",
           "correct": true
         },
         {
-          "text": "Accessors"
+          "text": "HIV/AIDS"
         },
         {
-          "text": "Destructuring"
+          "text": "TB"
         },
         {
-          "text": "Arrow function"
+          "text": "None of the above"
         }
       ],
-      "explanation": "this.propertyName is the way to access a specific property within a class"
+      "explanation": "None of the above"
     }
   ]
 

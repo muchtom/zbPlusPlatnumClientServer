@@ -8,12 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NbButtonModule, NbTabsetModule, NbAlertModule, NbInputModule, NbFormFieldModule, NbSelectModule, NbCardModule, NbDatepickerModule, NbDialogService } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
+import { SetConfirmationComponent } from './components/set-confirmation/set-confirmation.component';
 
 
 @NgModule({
   declarations: [
     RedeemDetailComponent,
-    SetRedeemComponent
+    SetRedeemComponent,
+    SetConfirmationComponent
   ],
   imports: [
     CommonModule,

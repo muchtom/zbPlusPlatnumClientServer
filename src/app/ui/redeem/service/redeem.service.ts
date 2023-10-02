@@ -12,7 +12,7 @@ export class RedeemService {
   openDialog(data:any){
     const dialogRef = this.dialogService.open(SetRedeemComponent,{
       context: {
-        // data: data,
+        data: data,
       },
     });
     dialogRef.onClose.subscribe((response) =>{

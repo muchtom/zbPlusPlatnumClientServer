@@ -1,0 +1,21 @@
+<nb-card accent="info" class="col-md-10 mx-auto">
+    <nb-card-header>Confirm Credentials
+
+    </nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="SalesForm">
+           
+            <div class="form-group">
+                <label>Enter Pin</label>
+                <input type="number" row="5" nbInput fullWidth formControlName="pin" placeholder="" />
+            </div>
+            <div class="row"> <nb-card-footer>
+                <button class="cancel" nbButton status="danger" (click)="dismiss()">Cancel</button>
+                <button nbButton status="success"  (click)="submit()">Submit</button>
+            </nb-card-footer>
+
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>
+

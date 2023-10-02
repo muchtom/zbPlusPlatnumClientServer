@@ -5,28 +5,27 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
-import { SetConfirmationComponent } from '../set-confirmation/set-confirmation.component';
 
 @Component({
-  selector: 'app-set-redeem',
-  templateUrl: './set-redeem.component.html',
-  styleUrls: ['./set-redeem.component.scss']
+  selector: 'app-set-confirmation',
+  templateUrl: './set-confirmation.component.html',
+  styleUrls: ['./set-confirmation.component.scss']
 })
-export class SetRedeemComponent implements OnInit {
+export class SetConfirmationComponent implements OnInit {
 
+  
   @Input() data:any;
   SalesForm!: FormGroup;
   selectedProductCode: any;
 
   @Output() add = new EventEmitter<string>();
   
-  constructor(private dialogService: NbDialogService, protected dialogRef: NbDialogRef<SetRedeemComponent>,private fb:FormBuilder,
+  constructor(private dialogService: NbDialogService, protected dialogRef: NbDialogRef<SetConfirmationComponent>,private fb:FormBuilder,
     private service: ApiService,private alertService: AlertService, private datePipe: DatePipe, private http:HttpClient) { 
 
       this.SalesForm = fb.group({
         zbAccount: ['',Validators.required],
         amount: ['',Validators.required],
-        phoneNumber:['',Validators.required]
 
       
 
@@ -41,6 +40,10 @@ export class SetRedeemComponent implements OnInit {
 
     submit(){
 
+
+        // this.alertService.showSuccess('Saved Succcessfuly');
+          this.ngOnInit();
+          this.dismiss();
       // const dataToSend = { ...this.DepartmentForm.value };
 
       // const date =  this.DepartmentForm.value.date
@@ -50,29 +53,29 @@ export class SetRedeemComponent implements OnInit {
 
 
 
-      var svc;
-      this.data.id ? svc= this.http.put(`http://localhost:8004/zbLoyalty/updatePricingSubscription/${this.data.id}`,
-      this.SalesForm.value) : svc=this.http.post(`http://localhost:8004/zbLoyalty/redeemPoints`,
-      this.SalesForm.value)
-      svc.subscribe({
-        next:()=>{
-          this.open(this.data);
-          // this.alertService.showSuccess('Saved Succcessfuly');
-          // this.ngOnInit();
-          // this.dismiss();
-        },
-        error: (error) => {
+      // var svc;
+      // this.data.id ? svc= this.http.put(`http://localhost:8004/zbLoyalty/updatePricingSubscription/${this.data.id}`,
+      // this.SalesForm.value) : svc=this.http.post(`http://localhost:8004/zbLoyalty/redeemPoints`,
+      // this.SalesForm.value)
+      // svc.subscribe({
+      //   next:()=>{
+      //     this.open(this.data);
+      //     // this.alertService.showSuccess('Saved Succcessfuly');
+      //     // this.ngOnInit();
+      //     // this.dismiss();
+      //   },
+      //   error: (error) => {
           
-          // Display a generic error message or handle the error accordingly
-          this.alertService.showError('An error occurred. Please try again later.' , );
-        }
-      })
+      //     // Display a generic error message or handle the error accordingly
+      //     this.alertService.showError('An error occurred. Please try again later.' , );
+      //   }
+      // })
     }
 
     open(data:any){
       const dialogRef = this.dialogService.open(SetConfirmationComponent,{
         context:{
-          data:data,
+          // data:data,
         },
       });
       dialogRef.onClose.subscribe((response)=>{
