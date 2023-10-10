@@ -5,6 +5,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
+import { DocumentService } from '../../service/document.service';
 
 @Component({
   selector: 'app-set-customer-activity',
@@ -24,17 +25,25 @@ export class SetCustomerActivityComponent implements OnInit {
   zbActivities!: any[];
   LivingActivities!:any[];
   ropa !:any;
+   img!:any;
+  uploadedImage!: File;
+  dbImage: any;
+  postResponse: any;
+  successResponse!: string;
+  image: any;
+  fileData!: any;
     
   @Output() add = new EventEmitter<string>();
   
   constructor(private dialogService: NbDialogService, protected dialogRef: NbDialogRef<SetCustomerActivityComponent>,private fb:FormBuilder,
-    private service: ApiService,private alertService: AlertService, private datePipe: DatePipe, private http: HttpClient) { 
+    private service: ApiService,private alertService: AlertService, private datePipe: DatePipe, private http: HttpClient, private document: DocumentService) { 
 
       this.SalesForm = fb.group({
         zbAchiever: ['',Validators.required],
         name: ['',Validators.required],
         zbAccount: ['',Validators.required],
-        points: ['',Validators.required]
+        points: ['',Validators.required],
+        imageName: ['',Validators.required]
 
       });
     }
@@ -100,6 +109,12 @@ export class SetCustomerActivityComponent implements OnInit {
             }
         );
   }
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+     this.fileData = event;
+     this.uploadedImage = event.target.files[0];
+
+  }
 
   onTabChange(event: any) {
     const tabIdentifier = event.tab.tabIdentifier;
@@ -129,7 +144,8 @@ export class SetCustomerActivityComponent implements OnInit {
   }
     submit(){
       
-      this.SalesForm.get('zbAchiever')?.setValue(this.ropa);
+       this.SalesForm.get('zbAchiever')?.setValue(this.ropa);
+       this.SalesForm.get('imageName')?.setValue(this.uploadedImage?.name);
 
       var svc;
       this.data.id ? svc= this.service.updateToUrl(`department/updateDepartment/${this.data.id}`,
@@ -145,23 +161,39 @@ export class SetCustomerActivityComponent implements OnInit {
       })
     }
 
+    // uploadFile() {
+    //   this.SalesForm.get('zbAchiever')?.setValue(this.ropa);
+    //   this.SalesForm.get('imageName')?.setValue(this.img)
+    //     this.document.uploadDocument(this.fileData.target.files[0], this.data.id).subscribe((res: any) => {
+    //       // this.alertService.showSuccess('Saved Succcessfuly');
+    //       // console.log(res);
+    //       // this.ngOnInit();
+    //       // this.dismiss();
+    //     }); 
+    // }
+
     private initForm(data:any){
       data= data ||{
         zbAchiever: [],
         name:[],
         zbAccount:[],
-        points:[]
-       
+        points:[],
+        imageName: []
       }
       return this.SalesForm= new FormGroup({
         zbAchiever: new FormControl(data.zbAchiever,Validators.required),
         name: new FormControl(data.name,Validators.required),
         zbAccount: new FormControl(data.zbAccount,Validators.required),
+        imageName: new FormControl(data.image,Validators.required),
       })
     }
 
     dismiss(){
       this.dialogRef.close();
+    }
+
+    public onImageUpload(event:any) {
+      this.uploadedImage = event.target.files[0];
     }
 
   ngOnInit(): void {

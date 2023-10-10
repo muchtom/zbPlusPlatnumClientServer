@@ -22,6 +22,11 @@
                     </nb-option>
                 </nb-select>
             </div>
+            <div class="form-group ">
+                <label for="formFileSm" class="form-label">File</label>
+                <!-- <input  nbInput fullWidth formControlName="name" placeholder="" /> -->
+             <input class="form-control form-control-lg"  (change)="onFileSelected($event)" id="file" formControlName="imageName" type="file" />
+            </div>
             <div class="row"> <nb-card-footer>
                 <button class="cancel" nbButton status="danger" (click)="dismiss()">Cancel</button>
                 <button nbButton status="success"  (click)="submit()">Submit</button>

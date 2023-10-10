@@ -1,0 +1,25 @@
+<nb-card accent="info" class="col-md-10 mx-auto">
+    <nb-card-header>Upload Customer Transaction
+
+    </nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="FileForm">
+            <div class="row">
+                <div class="form-group ">
+                    <label for="formFileSm" class="form-label">Upload CSV</label>
+                    <!-- <input  nbInput fullWidth formControlName="name" placeholder="" /> -->
+                 <input class="form-control form-control-lg"  (change)="onFileSelected($event)" id="file" formControlName="file" type="file" />
+                </div>
+            </div>
+            <div class="row"> <nb-card-footer>
+                <button class="cancel" nbButton status="danger" (click)="dismiss()">Cancel</button>
+                <button nbButton status="success" [disabled]="FileForm.invalid" (click)="uploadFile()">Submit</button>
+            </nb-card-footer>
+
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>
+
+
+

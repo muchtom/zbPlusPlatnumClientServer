@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomerDetailComponent } from './componets/customer-detail/customer-detail.component';
 import { CustomerPaymentComponent } from './componets/customer-payment/customer-payment.component';
 import { MemberComponent } from './componets/member/member.component';
+import { CustomerTransactionComponent } from './componets/customer-transaction/customer-transaction.component';
+import { ChannelPricingComponent } from './componets/channel-pricing/channel-pricing.component';
 
 
 const routes: Routes = [
@@ -14,6 +16,12 @@ const routes: Routes = [
   },
   {
     path: 'members',component:MemberComponent
+  },
+  {
+    path: 'customer-transaction',component:CustomerTransactionComponent
+  },
+  {
+    path: 'channel-pricing',component:ChannelPricingComponent
   }
 ];
 

@@ -9,6 +9,10 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { CustomerPaymentComponent } from './componets/customer-payment/customer-payment.component';
 import { SetCustomerPaymentComponent } from './componets/set-customer-payment/set-customer-payment.component';
+import { CustomerTransactionComponent } from './componets/customer-transaction/customer-transaction.component';
+import { AddCsvComponent } from './componets/add-csv/add-csv.component';
+import { ChannelPricingComponent } from './componets/channel-pricing/channel-pricing.component';
+import { AddChannelPricingComponent } from './componets/add-channel-pricing/add-channel-pricing.component';
 
 
 @NgModule({
@@ -16,7 +20,11 @@ import { SetCustomerPaymentComponent } from './componets/set-customer-payment/se
     CustomerDetailComponent,
     SetCustomerActivityComponent,
     CustomerPaymentComponent,
-    SetCustomerPaymentComponent
+    SetCustomerPaymentComponent,
+    CustomerTransactionComponent,
+    AddCsvComponent,
+    ChannelPricingComponent,
+    AddChannelPricingComponent
   ],
   imports: [
     CommonModule,

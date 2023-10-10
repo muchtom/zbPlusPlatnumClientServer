@@ -98,12 +98,22 @@ export class ContainerComponent implements OnInit {
       adminAuthority.authority.includes('admin:delete') || 
       adminAuthority.authority.includes('admin:read')){
         this.items = [
-            {
+           
+          {
+              title: 'Customer Transaction',
+              icon: 'settings',
+              link: 'customers/customer-transaction'
+          },
+          {
+             title: 'Channel Pricing',
+             icon: 'price',
+             link: 'customers/channel-pricing'
+          },
+          {
             title: 'Activities',
             icon: 'book',
             link: 'customers/customer-detail'
           },
-          
           {
             title: 'Monthly Subscription',
             icon: 'book',
