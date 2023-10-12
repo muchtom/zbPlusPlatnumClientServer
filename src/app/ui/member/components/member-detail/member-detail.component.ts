@@ -35,20 +35,17 @@ export class MemberDetailComponent implements OnInit {
       confirmSave: true
     },
     columns: {
+      id: {
+        title: 'ZbId',
+      },
       firstName: {
-        title: 'First Name',
+        title: 'Name'
       },
-      lastName: {
-        title: 'Last Name'
+      bankAccount:{
+        title: 'Bank Account'
       },
-      email:{
-        title: 'Email'
-      },
-      idNumber:{
-        title: 'ID Number'
-      },
-      subscription:{
-        title: 'Subscription'
+      phoneNumber:{
+        title: 'Cell Number'
       },
       role:{
           title: 'Role'

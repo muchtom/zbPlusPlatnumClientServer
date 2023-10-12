@@ -62,6 +62,7 @@ export class AddCsvComponent implements OnInit {
           // this.alertService.showSuccess('Saved Succcessfuly');
           console.log(res);
           this.ngOnInit();
+          this.alertService.showSuccess('Saved Succcessfuly');
           this.dismiss();
         });
     }
