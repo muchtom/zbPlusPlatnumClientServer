@@ -39,11 +39,9 @@ export class SetCustomerActivityComponent implements OnInit {
     private service: ApiService,private alertService: AlertService, private datePipe: DatePipe, private http: HttpClient, private document: DocumentService) { 
 
       this.SalesForm = fb.group({
-        zbAchiever: ['',Validators.required],
-        name: ['',Validators.required],
-        zbAccount: ['',Validators.required],
-        points: ['',Validators.required],
-        imageName: ['',Validators.required]
+        file: ['',Validators.required],
+        memberId: ['',Validators.required],
+        adminActivityId: ['',Validators.required],
 
       });
     }
@@ -52,9 +50,6 @@ export class SetCustomerActivityComponent implements OnInit {
       return this.SalesForm && this.SalesForm.controls &&
       this.SalesForm.controls["to"] as FormArray;
     }
-    // getActivitiesInArchiever(){
-    //   this.http.get(`http://localhost:8004/zbLoyalty/getActivitiesUnderSpecificZbAchiever/${zbAchiever}`)
-    // }
 
     onZbAchieverSelected() {
       const zbAchiever = this.selectedArchievers;
@@ -109,11 +104,10 @@ export class SetCustomerActivityComponent implements OnInit {
             }
         );
   }
+
   onFileSelected(event: any): void {
     const file = event.target.files[0];
-     this.fileData = event;
-     this.uploadedImage = event.target.files[0];
-
+     this.fileData = event
   }
 
   onTabChange(event: any) {
@@ -142,35 +136,42 @@ export class SetCustomerActivityComponent implements OnInit {
       }
     }
   }
-    submit(){
-      
-       this.SalesForm.get('zbAchiever')?.setValue(this.ropa);
-       this.SalesForm.get('imageName')?.setValue(this.uploadedImage?.name);
-
-      var svc;
-      this.data.id ? svc= this.service.updateToUrl(`department/updateDepartment/${this.data.id}`,
-      this.SalesForm.value) : svc=this.http.post(`http://localhost:8004/zbLoyalty/addNewCustomerActivity`,
-      this.SalesForm.value)
-      svc.subscribe({
-        next:()=>{
-       
-          this.alertService.showSuccess('Saved Succcessfuly');
-          this.ngOnInit();
-          this.dismiss();
-        }
-      })
+  uploadFile() {
+    const user = JSON.parse(sessionStorage.getItem('user') ?? '{}');
+    const meetingControl = this.SalesForm.get('adminActivityId');
+    console.log("baba")
+    if (meetingControl && meetingControl.value) {
+      const meetingId = meetingControl.value;
+      this.document.uploadDocument(this.fileData.target.files[0], meetingId, user?.id ).subscribe((res: any) => {
+        this.alertService.showSuccess('Saved Succcessfuly');
+        console.log(res);
+        this.ngOnInit();
+        this.dismiss();
+      });
+    } else {
+      // Handle the case when the meeting form control is not found or has no value
     }
+  }
+    // submit(){
+      
+    //    this.SalesForm.get('zbAchiever')?.setValue(this.ropa);
+    //    this.SalesForm.get('imageName')?.setValue(this.uploadedImage?.name);
 
-    // uploadFile() {
-    //   this.SalesForm.get('zbAchiever')?.setValue(this.ropa);
-    //   this.SalesForm.get('imageName')?.setValue(this.img)
-    //     this.document.uploadDocument(this.fileData.target.files[0], this.data.id).subscribe((res: any) => {
-    //       // this.alertService.showSuccess('Saved Succcessfuly');
-    //       // console.log(res);
-    //       // this.ngOnInit();
-    //       // this.dismiss();
-    //     }); 
+    //   var svc;
+    //   this.data.id ? svc= this.service.updateToUrl(`department/updateDepartment/${this.data.id}`,
+    //   this.SalesForm.value) : svc=this.http.post(`http://localhost:8004/zbLoyalty/addNewCustomerActivity`,
+    //   this.SalesForm.value)
+    //   svc.subscribe({
+    //     next:()=>{
+       
+    //       this.alertService.showSuccess('Saved Succcessfuly');
+    //       this.ngOnInit();
+    //       this.dismiss();
+    //     }
+    //   })
     // }
+
+   
 
     private initForm(data:any){
       data= data ||{
@@ -181,10 +182,9 @@ export class SetCustomerActivityComponent implements OnInit {
         imageName: []
       }
       return this.SalesForm= new FormGroup({
-        zbAchiever: new FormControl(data.zbAchiever,Validators.required),
-        name: new FormControl(data.name,Validators.required),
-        zbAccount: new FormControl(data.zbAccount,Validators.required),
-        imageName: new FormControl(data.image,Validators.required),
+        memberId: new FormControl(data.memberId,Validators.required),
+        file: new FormControl(data.file,Validators.required),
+        adminActivityId: new FormControl(data.adminActivityId,Validators.required),
       })
     }
 
@@ -200,9 +200,10 @@ export class SetCustomerActivityComponent implements OnInit {
     this.data= {...this.data};
     this.initForm(this.data);
     const user = JSON.parse(sessionStorage.getItem('user') ?? '{}');
-    this.SalesForm.get('zbAccount')?.setValue(user?.bankAccount); 
+    // this.SalesForm.get('zbAccount')?.setValue(user?.bankAccount); 
+    this.SalesForm.get('id')?.setValue(user?.id);
     this.onZbAchieverSelected();
-    console.log(this.ropa); 
+    this.zbWealthActivites();
     this.zbLivingActivities();
    
   }

@@ -13,37 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContainerComponent implements OnInit {
  items: NbMenuItem[] = [
-
-  {
-    title: 'Stock Status',
-    icon: 'book',
-    link: 'system-parameters/home'
-  },
-  // {
-  //   title: 'Daily Sale',
-  //   icon: 'book',
-  //   link: 'system-parameters/line-chart'
-  // },
-  {
-    title: 'Products',
-    icon: 'book',
-    expanded: false,
-    children: [
-      {
-      title: 'Product Delivery',
-      link: 'product/product-delivery'
-      },
-      {
-        title: 'Product Sale',
-        link: 'product/product-sale'
-      },
-      {
-        title: 'Pricing',
-        link: 'product/product-pricing'
-      }
-
-    ]
-  },  
+ 
   ];
 
   constructor(
@@ -101,37 +71,44 @@ export class ContainerComponent implements OnInit {
            
           {
               title: 'Customer Transaction',
-              icon: 'settings',
+              icon: 'list',
               link: 'customers/customer-transaction'
           },
           {
              title: 'Channel Pricing',
-             icon: 'price',
+             icon: 'settings',
              link: 'customers/channel-pricing'
           },
+          // {
+          //   title: 'Activities',
+          //   icon: 'book',
+          //   link: 'customers/customer-detail'
+          // },
+          // {
+          //   title: 'Monthly Subscription',
+          //   icon: 'book',
+          //   link: 'customers/customer-payment'
+          // },
           {
-            title: 'Activities',
-            icon: 'book',
-            link: 'customers/customer-detail'
-          },
-          {
-            title: 'Monthly Subscription',
-            icon: 'book',
-            link: 'customers/customer-payment'
+            title: 'Pending Activities',
+            icon: 'calendar',
+            link: 'admin/pending'
           },
           {
             title: 'Subscriptions',
             icon: 'person',
             link: 'subscription/details'
           },
+        
           {
             title: 'Activity Schedule',
-            icon: 'book',
+            icon: 'radio',
             link: 'admin/admin-activity'
           },
+       
           {
             title: 'Quiz',
-            icon: 'book',
+            icon: 'bar-chart',
             link: 'quiz/welcome-to-quiz'
           },
           {
