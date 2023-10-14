@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { CustomerService } from '../../services/customer.service';
 import { SetCustomerActivityComponent } from '../set-customer-activity/set-customer-activity.component';
+import { SetHealthActivityComponent } from '../set-health-activity/set-health-activity.component';
 
 @Component({
   selector: 'app-customer-detail',
@@ -76,7 +77,7 @@ export class CustomerDetailComponent implements OnInit {
   }
 
   open(data:any){
-    const dialogRef = this.dialogService.open(SetCustomerActivityComponent,{
+    const dialogRef = this.dialogService.open(SetHealthActivityComponent,{
       context:{
         data:data,
       },

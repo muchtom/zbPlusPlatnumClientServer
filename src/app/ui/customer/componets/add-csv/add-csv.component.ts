@@ -61,9 +61,9 @@ export class AddCsvComponent implements OnInit {
         this.document.uploadDocument(this.fileData.target.files[0]).subscribe((res: any) => {
           // this.alertService.showSuccess('Saved Succcessfuly');
           console.log(res);
-          this.ngOnInit();
           this.alertService.showSuccess('Saved Succcessfuly');
           this.dismiss();
+          this.ngOnInit();
         });
     }
 

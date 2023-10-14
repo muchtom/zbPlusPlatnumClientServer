@@ -5,6 +5,7 @@ import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { ChannelService } from '../../service/channel.service';
 import { HttpClient } from '@angular/common/http';
 import { AddChannelPricingComponent } from '../add-channel-pricing/add-channel-pricing.component';
+import { CustomerDocumentReviewComponent } from '../customer-document-review/customer-document-review.component';
 
 @Component({
   selector: 'app-channel-pricing',
@@ -79,8 +80,10 @@ export class ChannelPricingComponent implements OnInit {
       case 'edit':
         this.edit(event.data);
         break;
+     
     }
   }
+
   edit(data:any){
     const selectedItem = data
     console.log(selectedItem);

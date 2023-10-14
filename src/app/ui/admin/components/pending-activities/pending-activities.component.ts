@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
+import { CustomerDocumentReviewComponent } from 'src/app/ui/customer/componets/customer-document-review/customer-document-review.component';
+import { SetCustomerPointsComponent } from '../set-customer-points/set-customer-points.component';
 
 @Component({
   selector: 'app-pending-activities',
@@ -45,9 +47,9 @@ export class PendingActivitiesComponent implements OnInit {
         title: 'Member',
         valuePrepareFunction: (member: { firstName: any; lastName: any; }) => `${member.firstName} ${member.lastName}`
       },
-      adminActivity: {
-        title: 'Activity Name',
-        valuePrepareFunction: (activity: { name: any; }) => activity.name
+      prices: {
+        title: 'Activity',
+        valuePrepareFunction: (prices: { channelType: any; }) => prices.channelType  // Access channelType from prices
       },
       status: {
         title: 'Status'
@@ -83,9 +85,30 @@ export class PendingActivitiesComponent implements OnInit {
   onCustomAction(event:any){
     switch(event.action){
       case 'edit':
-        this.edit(event.data);
+        this.addCustomerTransaction(event.data);
         break;
+        case 'viewRecord':
+          this.openCustomerDocument(event.data)
+          break;
     }
+  }
+  addCustomerTransaction(data:any){
+    console.log(data);
+    
+    const dialogRef = this.dialogService.open(SetCustomerPointsComponent,{
+      context: {
+        data:data
+      }
+    })
+  }
+  openCustomerDocument(data:any){
+    console.log(data);
+    
+    const dialogRef = this.dialogService.open(CustomerDocumentReviewComponent,{
+      context: {
+        data:data
+      }
+    })
   }
   edit(data:any){
     const selectedItem = data

@@ -10,13 +10,15 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { PendingActivitiesComponent } from './components/pending-activities/pending-activities.component';
+import { SetCustomerPointsComponent } from './components/set-customer-points/set-customer-points.component';
 
 
 @NgModule({
   declarations: [
     AdminActivityDetailComponent,
     SetAdminActivityDetailComponent,
-    PendingActivitiesComponent
+    PendingActivitiesComponent,
+    SetCustomerPointsComponent
   ],
   imports: [
     CommonModule,

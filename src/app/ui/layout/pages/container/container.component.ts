@@ -79,11 +79,11 @@ export class ContainerComponent implements OnInit {
              icon: 'settings',
              link: 'customers/channel-pricing'
           },
-          // {
-          //   title: 'Activities',
-          //   icon: 'book',
-          //   link: 'customers/customer-detail'
-          // },
+          {
+            title: 'Activities',
+            icon: 'book',
+            link: 'customers/customer-detail'
+          },
           // {
           //   title: 'Monthly Subscription',
           //   icon: 'book',
@@ -94,20 +94,20 @@ export class ContainerComponent implements OnInit {
             icon: 'calendar',
             link: 'admin/pending'
           },
-          {
-            title: 'Subscriptions',
-            icon: 'person',
-            link: 'subscription/details'
-          },
+          // {
+          //   title: 'Subscriptions',
+          //   icon: 'person',
+          //   link: 'subscription/details'
+          // },
         
-          {
-            title: 'Activity Schedule',
-            icon: 'radio',
-            link: 'admin/admin-activity'
-          },
+          // {
+          //   title: 'Activity Schedule',
+          //   icon: 'radio',
+          //   link: 'admin/admin-activity'
+          // },
        
           {
-            title: 'Quiz',
+            title: 'Questionnaire',
             icon: 'bar-chart',
             link: 'quiz/welcome-to-quiz'
           },
