@@ -109,12 +109,12 @@ export class ContainerComponent implements OnInit {
           {
             title: 'Questionnaire',
             icon: 'bar-chart',
-            link: 'quiz/welcome-to-quiz'
+            link: 'quiz/questionnaire'
           },
           {
             title: 'Reedem',
             icon: 'book',
-            link: 'redeem/redeem-detail'
+            link: 'redeem/qualify'
           },
           {
             title: 'Users',
@@ -136,12 +136,17 @@ export class ContainerComponent implements OnInit {
             icon: 'book',
             link: 'customers/customer-detail'
           },
-          
           {
-            title: 'Monthly Subscription',
-            icon: 'book',
-            link: 'customers/customer-payment'
+            title: 'Questionnaire',
+            icon: 'bar-chart',
+            link: 'quiz/questionnaire'
           },
+          
+          // {
+          //   title: 'Monthly Subscription',
+          //   icon: 'book',
+          //   link: 'customers/customer-payment'
+          // },
           // {
           //   title: 'Subscriptions',
           //   icon: 'person',

@@ -16,7 +16,7 @@ export class CsvService {
   
     const req = new HttpRequest(
       'POST',
-      `http://localhost:8004/zbLoyalty/files/upload`,
+      `http://localhost:8004/zbLoyalty/uploadCSV`,
       formData,
       {
         responseType: 'json'

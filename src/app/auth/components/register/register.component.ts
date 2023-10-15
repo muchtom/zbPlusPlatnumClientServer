@@ -14,6 +14,7 @@ import { LoginService } from 'src/app/shared/shared/services/login.service';
 export class RegisterComponent implements OnInit {
 
   url:any
+  selectedProductCode: any;
   form!: FormGroup;
   error: boolean =false
 
@@ -42,6 +43,12 @@ export class RegisterComponent implements OnInit {
             password: ['', Validators.required],
             bankAccount: ['', Validators.required],
             idNumber: ['', Validators.required],
+            phoneNumber:['',Validators.required],
+            emailAddress:['',Validators.required],
+            cashFuneralPolicyNumber:['',Validators.required],
+            qupaLoanAccountNumber:['',Validators.required],
+            gender:['',Validators.required],
+            address:['',Validators.required]
         });
     }
     // convenience getter for easy access to form fields
@@ -76,5 +83,16 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/log']);
       
   }
+  productCodes=[
+    {
+      name:'Male',
+      value:'MALE'
+    },
+    {
+      name:'Female',
+      value:'FEMALE'
+    },
+    
+  ]
 
 }

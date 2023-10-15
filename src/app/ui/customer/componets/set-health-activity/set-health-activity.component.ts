@@ -71,7 +71,7 @@ export class SetHealthActivityComponent implements OnInit {
     if (meetingControl && meetingControl.value) {
       const meetingId = meetingControl.value;
       this.document.uploadDocument(this.fileData.target.files[0],user?.id, meetingId ).subscribe((res: any) => {
-        this.alertService.showSuccess('Saved Succcessfuly');
+        // this.alertService.showSuccess('Saved Succcessfuly');
         console.log(res);
         this.ngOnInit();
         this.dismiss();

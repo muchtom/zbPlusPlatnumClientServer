@@ -9,13 +9,15 @@ import { NbButtonModule, NbTabsetModule, NbAlertModule, NbInputModule, NbFormFie
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { SetConfirmationComponent } from './components/set-confirmation/set-confirmation.component';
+import { QualifyServicesComponent } from './components/qualify-services/qualify-services.component';
 
 
 @NgModule({
   declarations: [
     RedeemDetailComponent,
     SetRedeemComponent,
-    SetConfirmationComponent
+    SetConfirmationComponent,
+    QualifyServicesComponent
   ],
   imports: [
     CommonModule,

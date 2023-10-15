@@ -1,0 +1,19 @@
+<nb-card accent="info">
+    <ng-template #dialog let-data let-ref="dialogRef">
+      <nb-card>
+        <nb-card-header>Template Dialog</nb-card-header>
+        <nb-card-body>{{ data }}</nb-card-body>
+        <nb-card-footer>
+          <button nbButton (click)="ref.close()">Close Dialog</button>
+        </nb-card-footer>
+      </nb-card>
+    </ng-template>
+    <nb-card-header>  
+      All Customers Who Qualify for QUPA, BANK Loan and Cash Funeral Benefit
+    
+        </nb-card-header>
+    <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="customerDetails" (custom)="onCustomAction($event)"></ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  

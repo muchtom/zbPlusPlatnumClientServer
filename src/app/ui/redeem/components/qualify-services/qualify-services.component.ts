@@ -3,16 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
-import { CustomerService } from '../../services/customer.service';
-import { SetCustomerActivityComponent } from '../set-customer-activity/set-customer-activity.component';
-import { SetHealthActivityComponent } from '../set-health-activity/set-health-activity.component';
+import { SetHealthActivityComponent } from 'src/app/ui/customer/componets/set-health-activity/set-health-activity.component';
+import { CustomerService } from 'src/app/ui/customer/services/customer.service';
 
 @Component({
-  selector: 'app-customer-detail',
-  templateUrl: './customer-detail.component.html',
-  styleUrls: ['./customer-detail.component.scss']
+  selector: 'app-qualify-services',
+  templateUrl: './qualify-services.component.html',
+  styleUrls: ['./qualify-services.component.scss']
 })
-export class CustomerDetailComponent implements OnInit {
+export class QualifyServicesComponent implements OnInit {
 
   settings = {
     actions: {
@@ -44,14 +43,8 @@ export class CustomerDetailComponent implements OnInit {
       zbId: {
         title: 'ZB Id',
       },
-      amount: {
-        title: 'Amount'
-      },
-      created_date:{
-         title: 'Date'
-      },
-      channel_type:{
-          title: 'Activity'
+      debit_customer_name: {
+        title: 'Name'
       },
       points:{
         title: 'Points'
@@ -70,7 +63,7 @@ export class CustomerDetailComponent implements OnInit {
     console.log(user.bankAccount);
     
     this.userDetails = user.sub
-    this.http.get(`http://localhost:8004/zbLoyalty/getCustomersWhichQualify/${user?.id}`).subscribe((response: any)=>{
+    this.http.get(`http://localhost:8004/zbLoyalty/qualifiedCustomers`).subscribe((response: any)=>{
       this.customerDetails = response;
       console.log(this.customerDetails);
       this.bankAccountNumber= user.bankAccount;
@@ -92,8 +85,7 @@ export class CustomerDetailComponent implements OnInit {
   }
 
   getActivePoints(){
-    const user = JSON.parse(sessionStorage.getItem('user') ?? '{}');
-    this.http.get(`http://localhost:8004/zbLoyalty/getCustomerNumberPoints/${user?.id}`).subscribe((response: any) =>{
+    this.http.get(`http://localhost:8004/zbLoyalty/getCustomerNumberPoints/${this.bankAccountNumber}`).subscribe((response: any) =>{
       this.totalActivePoints = response;
       console.log(this.totalActivePoints);
     })
@@ -120,6 +112,5 @@ export class CustomerDetailComponent implements OnInit {
   showError(){
     this.alertService.showError("This is an error message");
   }
-
 
 }
