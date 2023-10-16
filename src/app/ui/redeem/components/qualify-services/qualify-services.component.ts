@@ -40,13 +40,13 @@ export class QualifyServicesComponent implements OnInit {
       confirmSave: true
     },
     columns: {
-      zbId: {
+      id: {
         title: 'ZB Id',
       },
-      debit_customer_name: {
+      customerName: {
         title: 'Name'
       },
-      points:{
+      totalPoints:{
         title: 'Points'
       }
     },
