@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
@@ -10,11 +10,11 @@ import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { LoginService } from 'src/app/shared/shared/services/login.service';
 
 @Component({
-  selector: 'app-questionnaire',
-  templateUrl: './questionnaire.component.html',
-  styleUrls: ['./questionnaire.component.scss']
+  selector: 'app-reedem-points',
+  templateUrl: './reedem-points.component.html',
+  styleUrls: ['./reedem-points.component.scss']
 })
-export class QuestionnaireComponent implements OnInit {
+export class ReedemPointsComponent implements OnInit {
 
   url:any
   selectedProductCode: any;
@@ -29,7 +29,8 @@ export class QuestionnaireComponent implements OnInit {
         private guard: AuthGuard,
         private notification:AlertService,
         private loginService: LoginService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        private cdr: ChangeDetectorRef
 
 
     ) { }
@@ -39,18 +40,20 @@ export class QuestionnaireComponent implements OnInit {
     
 
     ngOnInit() {
-      this.url = 'http://localhost:8004/zbLoyalty/addNewQuestionnaire';
+
+  
+
+      this.url = 'http://localhost:8004/zbLoyalty/redeemPointsNow';
     
       this.form = this.formBuilder.group({
-        zbId: ['', Validators.required],
-        educationProgress: ['', Validators.required],
-        childrenSchoolLevel: ['', Validators.required],
-        weddingAnniversary: ['', Validators.required],
-        familyBirthdays: ['', Validators.required],
+        id: ['', Validators.required],
+        redeemChannel: ['', Validators.required],
+        points: ['', Validators.required],
       });
     
       const user = JSON.parse(sessionStorage.getItem('user') ?? '{}');
-      this.form.get('zbId')?.setValue(user?.id);
+      this.form.get('id')?.setValue(user?.id);
+     
     }
     
     // convenience getter for easy access to form fields
@@ -67,21 +70,41 @@ export class QuestionnaireComponent implements OnInit {
           },
           (error) => {
             // Handle the error
-            console.error('Error submitting form', error);
+            console.error('Ma1');
           }
         );
     }
     
+  
+  visitToLoginPage(){
+  console.log("bliss");
+  
+    this.router.navigate(['/log']);
+      
+  }
+  onRedeemChannelChange() {
+    if (this.selectedProductCode !== 'CashBack') {
+      this.form.get('points')?.setValue(300);
+      this.cdr.detectChanges(); // Manually trigger change detection
+    }
+  }
   productCodes=[
     {
-      name:'Male',
-      value:'MALE'
+      name:'QUPA Loan',
+      value:'QUPA_Loan'
     },
     {
-      name:'Female',
-      value:'FEMALE'
+      name:'Cash Back',
+      value:'CashBack'
     },
+    {
+      name: 'Cash Funeral Plan',
+      value: 'Cash_Funeral_Plan'
+    },
+    {
+      name: 'Bank Loan Repayment',
+      value: 'Bank_Loan_Repayment'
+    }
     
   ]
-
 }

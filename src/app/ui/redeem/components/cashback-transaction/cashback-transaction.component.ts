@@ -1,17 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
-import { MemberService } from '../../service/member.service';
-import { SetMemberDetailComponent } from '../set-member-detail/set-member-detail.component';
-import { HttpClient } from '@angular/common/http';
+import { AddCsvComponent } from 'src/app/ui/customer/componets/add-csv/add-csv.component';
+import { CustomerTransactionService } from 'src/app/ui/customer/service/customer-transaction.service';
 
 @Component({
-  selector: 'app-member-detail',
-  templateUrl: './member-detail.component.html',
-  styleUrls: ['./member-detail.component.scss']
+  selector: 'app-cashback-transaction',
+  templateUrl: './cashback-transaction.component.html',
+  styleUrls: ['./cashback-transaction.component.scss']
 })
-export class MemberDetailComponent implements OnInit {
+export class CashbackTransactionComponent implements OnInit {
 
   settings = {
     actions: {
@@ -24,6 +24,11 @@ export class MemberDetailComponent implements OnInit {
         //   name:'edit',
         //   title:
         //   '<i class="fa-regular fa-pen-to-square fa-2xs" style="color:#28661c3"></i>',
+        //  },
+        //  {
+        //   name:'viewRecord',
+        //   title:
+        //   '<i class="fa-regular fa-light fa-eye fa-2xs" style="color: #1660df;"></i>',
         //  }
       ],
       position: 'right'
@@ -35,45 +40,37 @@ export class MemberDetailComponent implements OnInit {
       confirmSave: true
     },
     columns: {
-      id: {
-        title: 'ZbId',
+      zbId: {
+        title: 'zbId',
       },
-      firstName: {
-        title: 'Name'
-      },
-      bankAccount:{
-        title: 'Bank Account'
-      },
-      phoneNumber:{
-        title: 'Cell Number'
-      },
-      role:{
-          title: 'Role'
+      amount: {
+        title: 'Amount(USD)'
       }
     },
   };
 
-  allPrices:any;
-  constructor(private service:ApiService,private dialogService: NbDialogService,
-    private alertService: AlertService, private dialogServic: MemberService, private http:HttpClient){}
+  allDeliveries:any;
+  constructor( private service:ApiService,private dialogService: NbDialogService,
+    private alertService: AlertService, private dialogServic: CustomerTransactionService, private http:HttpClient){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8004/zbLoyalty/getAllMembers`).subscribe((response: any)=>{
-      this.allPrices = response;
-      console.log(this.allPrices);
+    this.http.get(`http://localhost:8004/zbLoyalty/getAllCashBacks
+    `).subscribe((response: any)=>{
+      this.allDeliveries = response;
+      console.log(this.allDeliveries);
       
-      this.allPrices;
+      this.allDeliveries;
     })
   }
 
   open(data:any){
-    const dialogRef = this.dialogService.open(SetMemberDetailComponent,{
+    const dialogRef = this.dialogService.open(AddCsvComponent,{
       context:{
         data:data,
       },
     });
     dialogRef.onClose.subscribe((response)=>{
       this.ngOnInit();
-      this.allPrices;
+      this.allDeliveries;
     });
   }
 
@@ -88,7 +85,7 @@ export class MemberDetailComponent implements OnInit {
     const selectedItem = data
     console.log(selectedItem);
     this.dialogServic.openDialog(selectedItem);
-    this.allPrices;
+    this.allDeliveries;
     
   }
   showSuccess(){

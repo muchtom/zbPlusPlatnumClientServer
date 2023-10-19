@@ -1,0 +1,67 @@
+<nb-layout>
+    <nb-layout-column>
+  <section class="background-radial-gradient overflow-hidden">
+    <style>
+
+    </style>
+
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+      <div class="row gx-lg-5 align-items-center mb-5">
+      
+
+        <div class=" mb-5 mb-lg-0 position-relative">
+          <!-- <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div> -->
+
+          <div class="card bg-glass">
+            <div class="card-body px-4 py-5 px-md-5" style="align-items: center !important; ">
+              <h2 style="text-align: center;">Reedem Points</h2>
+              <form [formGroup]="form" class="login-form" (ngSubmit)="register()">
+
+                
+                <div class="form-outline mb-4">
+                    <label  class="form-label">Channel</label>
+                    <nb-select  fullWidth id="meetingType" [(ngModel)]="selectedProductCode" formControlName="redeemChannel" (ngModelChange)="onRedeemChannelChange()">
+                        <nb-option *ngFor="let code  of productCodes" [value]="code.value">
+                         {{code.name}}
+                        </nb-option>
+                    </nb-select>
+                </div> 
+                <div class="row">
+                <div  *ngIf="selectedProductCode==='CashBack'"  >
+                   
+                    <label>Points</label>
+                    <input row="5" nbInput fullWidth formControlName="points" placeholder="" />
+                </div>
+            </div>
+               
+             <div class="row" style="padding-bottom: 50px;">
+
+             </div>
+             <!-- Submit button -->
+                <button type="submit" style="width: 300px;"   class="btn btn-primary btn-block mb-4">
+                  SUBMIT
+                </button>
+
+
+              </form>
+              <!-- <div class="row"> -->
+                <!-- <div class="col-lg-6">
+
+                  <a [href]="url">Forgot Password</a>
+                </div> -->
+                <!-- <div class="col-lg-6"> -->
+                  <!-- <a (click)="visitToLoginPage()"  class="register">Login</a> -->
+                <!-- </div> -->
+              <!-- </div> -->
+          
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </nb-layout-column>
+</nb-layout>
+

@@ -112,10 +112,25 @@ export class ContainerComponent implements OnInit {
             link: 'quiz/questionnaire'
           },
           {
-            title: 'Reedem',
+            title: 'Redeem',
             icon: 'book',
-            link: 'redeem/qualify'
+            expanded: false,
+            children: [
+              {
+                title: 'Qualified Customers',
+                link: 'redeem/qualify'
+              },
+              {
+                title: 'Cashback Reedem',
+                link: 'redeem/cashback'
+              },
+              {
+                title: 'Transaction',
+                link: 'redeem/redeem-transactions'
+              }
+            ],
           },
+         
           {
             title: 'Users',
             icon: 'person',
@@ -141,22 +156,35 @@ export class ContainerComponent implements OnInit {
             icon: 'bar-chart',
             link: 'quiz/questionnaire'
           },
-          
-          // {
-          //   title: 'Monthly Subscription',
-          //   icon: 'book',
-          //   link: 'customers/customer-payment'
-          // },
+          {
+            title: 'Redeem',
+            icon: 'book',
+            expanded: false,
+            children: [
+              {
+                title: 'FAQs',
+                link: 'redeem/redeem-detail'
+              },
+              {
+                title: 'Redeem Points',
+                link: 'redeem/redeem-points'
+              },
+              {
+                title: 'Cash Back',
+                link: 'redeem/user-info'
+              }
+            ],
+          },
           // {
           //   title: 'Subscriptions',
           //   icon: 'person',
           //   link: 'subscription/details'
           // },
-          {
-            title: 'Reedem',
-            icon: 'book',
-            link: 'redeem/redeem-detail'
-          },    
+          // {
+          //   title: 'Reedem',
+          //   icon: 'book',
+          //   link: 'redeem/redeem-detail'
+          // },    
         ];
       }
 
