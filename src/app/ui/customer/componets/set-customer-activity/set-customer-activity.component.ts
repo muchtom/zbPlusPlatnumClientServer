@@ -57,7 +57,7 @@ export class SetCustomerActivityComponent implements OnInit {
       
       this.ropa = "MyZbHealth";
       
-      this.http.get(`http://localhost:8004/zbLoyalty/getActivitiesUnderSpecificZbAchiever/MyZbHealth`)
+      this.http.get(`http://localhost:8005/zbLoyalty/getActivitiesUnderSpecificZbAchiever/MyZbHealth`)
           .subscribe(
               (activities: any) => {
                   this.zbActivities = activities;
@@ -75,7 +75,7 @@ export class SetCustomerActivityComponent implements OnInit {
     
     this.ropa = "MyZbLiving";
     
-    this.http.get(`http://localhost:8004/zbLoyalty/getActivitiesUnderSpecificZbAchiever/MyZbLiving`)
+    this.http.get(`http://localhost:8005/zbLoyalty/getActivitiesUnderSpecificZbAchiever/MyZbLiving`)
         .subscribe(
             (activities: any) => {
                 this.LivingActivities = activities;
@@ -93,7 +93,7 @@ export class SetCustomerActivityComponent implements OnInit {
     
     this.ropa = "MyZbWealth";
     
-    this.http.get(`http://localhost:8004/zbLoyalty/getActivitiesUnderSpecificZbAchiever/MyZbWealth`)
+    this.http.get(`http://localhost:8005/zbLoyalty/getActivitiesUnderSpecificZbAchiever/MyZbWealth`)
         .subscribe(
             (activities: any) => {
                 this.wealthActivities= activities;
@@ -142,7 +142,7 @@ export class SetCustomerActivityComponent implements OnInit {
     console.log("baba")
     if (meetingControl && meetingControl.value) {
       const meetingId = meetingControl.value;
-      this.document.uploadDocument(this.fileData.target.files[0], meetingId, user?.id ).subscribe((res: any) => {
+      this.document.uploadDocument(this.fileData.target.files[0]).subscribe((res: any) => {
         this.alertService.showSuccess('Saved Succcessfuly');
         console.log(res);
         this.ngOnInit();
@@ -159,7 +159,7 @@ export class SetCustomerActivityComponent implements OnInit {
 
     //   var svc;
     //   this.data.id ? svc= this.service.updateToUrl(`department/updateDepartment/${this.data.id}`,
-    //   this.SalesForm.value) : svc=this.http.post(`http://localhost:8004/zbLoyalty/addNewCustomerActivity`,
+    //   this.SalesForm.value) : svc=this.http.post(`http://localhost:8005/zbLoyalty/addNewCustomerActivity`,
     //   this.SalesForm.value)
     //   svc.subscribe({
     //     next:()=>{

@@ -39,7 +39,7 @@ export class QuestionnaireComponent implements OnInit {
     
 
     ngOnInit() {
-      this.url = 'http://localhost:8004/zbLoyalty/addNewQuestionnaire';
+      this.url = 'http://localhost:8005/zbLoyalty/addNewQuestionnaire';
     
       this.form = this.formBuilder.group({
         zbId: ['', Validators.required],

@@ -1,0 +1,22 @@
+<nb-card accent="info">
+    <ng-template #dialog let-data let-ref="dialogRef">
+      <nb-card>
+        <nb-card-header>Template Dialog</nb-card-header>
+        <nb-card-body>{{ data }}</nb-card-body>
+        <nb-card-footer>
+          <button nbButton (click)="ref.close()">Close Dialog</button>
+        </nb-card-footer>
+      </nb-card>
+    </ng-template>
+    <nb-card-header>
+       Customer Information
+      <div   class='right'><button nbButton size="tiny" outline status="primary" (click)="open(dialog)" fileName="messages" class="my-1 float-right">
+        <i class="fas fa-file-excel"></i>&nbsp;&nbsp; Invite Customer to Join
+      </button></div>
+        </nb-card-header>
+    <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="allDeliveries" (custom)="onCustomAction($event)"></ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  
+

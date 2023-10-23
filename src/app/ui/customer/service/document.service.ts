@@ -10,14 +10,14 @@ export class DocumentService {
 
   constructor(private http:HttpClient) { }
 
-  uploadDocument(file: File, meetingId: number, activityId: number): Observable<HttpEvent<any>> {
+  uploadDocument(file: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
     formData.append('file', file);
   
     const req = new HttpRequest(
       'POST',
       // `http://localhost:8099/upload?meetingId=${meetingId}`
-      `http://localhost:8004/upload?memberId=${meetingId}&adminActivityId=${activityId}`,
+      `http://localhost:8005/upload`,
       formData,
       {
         responseType: 'json'

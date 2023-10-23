@@ -37,7 +37,7 @@ export class SetCustomerPointsComponent implements OnInit {
 
     // submit(){
 
-    //   this.http.post(`http://localhost:8004/zbLoyalty/addNewSubscriptionPricing`,
+    //   this.http.post(`http://localhost:8005/zbLoyalty/addNewSubscriptionPricing`,
     //   this.SalesForm.value)
     //   .subscribe({
     //     next:()=>{
@@ -57,7 +57,7 @@ export class SetCustomerPointsComponent implements OnInit {
         channel_type: channelType,
       };
     
-      this.http.post(`http://localhost:8004/zbLoyalty/newCustomerTransaction`, requestBody)
+      this.http.post(`http://localhost:8005/zbLoyalty/newCustomerTransaction`, requestBody)
         .subscribe({
           next: () => {
             this.alertService.showSuccess('Saved Successfully');

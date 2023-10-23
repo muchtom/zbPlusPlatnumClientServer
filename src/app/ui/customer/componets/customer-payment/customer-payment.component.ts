@@ -53,7 +53,7 @@ export class CustomerPaymentComponent implements OnInit {
   constructor( private service:ApiService,private dialogService: NbDialogService,
     private alertService: AlertService, private dialogServic: CustomerPaymentService, private http:HttpClient){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8004/zbLoyalty/getAllSubscriptionPrices
+    this.http.get(`http://localhost:8005/zbLoyalty/getAllSubscriptionPrices
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);

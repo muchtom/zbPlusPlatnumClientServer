@@ -61,7 +61,7 @@ export class PendingActivitiesComponent implements OnInit {
   constructor( private service:ApiService,private dialogService: NbDialogService,
     private alertService: AlertService, private http:HttpClient){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8004/pendingTransaction
+    this.http.get(`http://localhost:8005/pendingTransaction
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);

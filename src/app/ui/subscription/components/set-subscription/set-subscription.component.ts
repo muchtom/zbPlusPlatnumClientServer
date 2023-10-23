@@ -23,7 +23,7 @@ export class SetSubscriptionComponent implements OnInit {
     private service: ApiService,private alertService: AlertService, private datePipe: DatePipe, private http:HttpClient) { 
 
       this.SalesForm = fb.group({
-        subscription: ['',Validators.required],
+        name: ['',Validators.required],
         amount: ['',Validators.required],
 
       
@@ -49,8 +49,8 @@ export class SetSubscriptionComponent implements OnInit {
 
 
       var svc;
-      this.data.id ? svc= this.http.put(`http://localhost:8004/zbLoyalty/updatePricingSubscription/${this.data.id}`,
-      this.SalesForm.value) : svc=this.http.post(`http://localhost:8004/zbLoyalty/addNewSubscriptionPricing`,
+      this.data.id ? svc= this.http.put(`http://localhost:8005/zbLoyalty/updatePricingSubscription/${this.data.id}`,
+      this.SalesForm.value) : svc=this.http.post(`http://localhost:8005/zbLoyalty/addNewSubscriptionPricing`,
       this.SalesForm.value)
       svc.subscribe({
         next:()=>{
@@ -64,7 +64,7 @@ export class SetSubscriptionComponent implements OnInit {
 
     private initForm(data:any){
       data= data ||{
-        subscription: [],
+        name: [],
         amount:[]
        
       }

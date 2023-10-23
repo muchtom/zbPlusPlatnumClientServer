@@ -70,7 +70,7 @@ export class CustomerDetailComponent implements OnInit {
     console.log(user.bankAccount);
     
     this.userDetails = user.sub
-    this.http.get(`http://localhost:8004/zbLoyalty/getCustomersWhichQualify/${user?.id}`).subscribe((response: any)=>{
+    this.http.get(`http://localhost:8005/zbLoyalty/getCustomersWhichQualify/${user?.id}`).subscribe((response: any)=>{
       this.customerDetails = response;
       console.log(this.customerDetails);
       this.bankAccountNumber= user.bankAccount;
@@ -93,7 +93,7 @@ export class CustomerDetailComponent implements OnInit {
 
   getActivePoints(){
     const user = JSON.parse(sessionStorage.getItem('user') ?? '{}');
-    this.http.get(`http://localhost:8004/zbLoyalty/getCustomerNumberPoints/${user?.id}`).subscribe((response: any) =>{
+    this.http.get(`http://localhost:8005/zbLoyalty/getCustomerNumberPoints/${user?.id}`).subscribe((response: any) =>{
       this.totalActivePoints = response;
       console.log(this.totalActivePoints);
     })

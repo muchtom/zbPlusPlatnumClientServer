@@ -63,7 +63,7 @@ export class QualifyServicesComponent implements OnInit {
     console.log(user.bankAccount);
     
     this.userDetails = user.sub
-    this.http.get(`http://localhost:8004/zbLoyalty/qualifiedCustomers`).subscribe((response: any)=>{
+    this.http.get(`http://localhost:8005/zbLoyalty/qualifiedCustomers`).subscribe((response: any)=>{
       this.customerDetails = response;
       console.log(this.customerDetails);
       this.bankAccountNumber= user.bankAccount;
@@ -85,7 +85,7 @@ export class QualifyServicesComponent implements OnInit {
   }
 
   getActivePoints(){
-    this.http.get(`http://localhost:8004/zbLoyalty/getCustomerNumberPoints/${this.bankAccountNumber}`).subscribe((response: any) =>{
+    this.http.get(`http://localhost:8005/zbLoyalty/getCustomerNumberPoints/${this.bankAccountNumber}`).subscribe((response: any) =>{
       this.totalActivePoints = response;
       console.log(this.totalActivePoints);
     })

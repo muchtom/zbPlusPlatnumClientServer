@@ -54,7 +54,7 @@ export class ChannelPricingComponent implements OnInit {
   constructor( private service:ApiService,private dialogService: NbDialogService,
     private alertService: AlertService, private dialogServic: ChannelService, private http:HttpClient){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8004/getAllChannelPrices
+    this.http.get(`http://localhost:8005/getAllChannelPrices
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);

@@ -1,0 +1,186 @@
+<nb-card status="primary" accent="info"  class="col-md-12 mx-auto">
+    <nb-card-header>CUSTOMER DETAILS
+      <div class="row" >
+        <div class="form-group col-md 4">
+          <div class="row" style="width: 200px">
+            <div class="form-group col-md 3">
+              <label for="meetingTitle">Name</label>
+            </div>
+            <div class="form-group col-md 3">
+              <input
+                type="text"
+                fieldSize="small"
+                nbInput
+                placeholder="{{allMeetingDetails.name}}"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md 4">
+          <div class="row" style="width: 200px">
+            <div class="form-group col-md 3">
+              <label for="meetingAgenda">ID Number</label>
+            </div>
+            <div class="form-group col-md 3">
+              <input
+                type="text"
+                fieldSize="small"
+                nbInput
+                placeholder="{{allMeetingDetails.idNumber}}"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md 4">
+          <div class="row" style="width: 200px">
+            <div class="form-group col-md 3">
+              <label for="meetingType">Address</label>
+            </div>
+            <div class="form-group col-md 3">
+              <input
+                type="text"
+                fieldSize="small"
+                nbInput
+                placeholder="{{allMeetingDetails.address}}"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row" >
+        <div class="form-group col-md 4">
+          <div class="row" style="width: 200px">
+            <div class="form-group col-md 3">
+              <label for="meetingDate">Income</label>
+            </div>
+            <div class="form-group col-md 3">
+              <input
+                type="text"
+                fieldSize="small"
+                nbInput
+                placeholder="{{allMeetingDetails.income}}"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md 4">
+          <div class="row" style="width: 200px">
+            <div class="form-group col-md 3">
+              <label for="meetingStartTime">Income Type</label>
+            </div>
+            <div class="form-group col-md 3">
+              <input
+                type="text"
+                fieldSize="small"
+                nbInput
+                placeholder="{{allMeetingDetails.incomeType}}"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group col-md 4">
+          <div class="row" style="width: 200px">
+            <div class="form-group col-md 3">
+              <label for="meetingEndTime">Assets Type</label>
+            </div>
+            <div class="form-group col-md 3">
+              <input
+                type="text"
+                fieldSize="small"
+                nbInput
+                placeholder="{{allMeetingDetails.assetsType}}"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row" >
+        <div class="form-group col-md 4">
+          <div class="row" style="width: 200px">
+            <div class="form-group col-md 3">
+              <label for="meetingDate">Contact Details</label>
+            </div>
+            <div class="form-group col-md 3">
+              <input
+                type="text"
+                fieldSize="small"
+                nbInput
+                placeholder="{{allMeetingDetails.contactDetails}}"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md 4">
+          <div class="row" style="width: 200px">
+            <div class="form-group col-md 3">
+              <label for="meetingStartTime">Influence Status</label>
+            </div>
+            <div class="form-group col-md 3">
+              <input
+                type="text"
+                fieldSize="small"
+                nbInput
+                placeholder="{{allMeetingDetails.influenceStatus}}"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group col-md 4">
+          <div class="row" style="width: 200px">
+            <div class="form-group col-md 3">
+              <label for="meetingEndTime">Influence Digital</label>
+            </div>
+            <div class="form-group col-md 3">
+              <input
+                type="text"
+                fieldSize="small"
+                nbInput
+                placeholder="{{allMeetingDetails.influenceDigital}}"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+    </nb-card-header>
+  
+    <nb-card-body>
+  
+      <nb-card class="classname" accent="info">
+  
+          <nb-card-header>
+           DETAILS
+  
+              </nb-card-header>
+          <nb-card-body>
+            <div>
+              <ng2-smart-table [settings]="settings" [source]="allMeeting"></ng2-smart-table>
+  
+            </div>
+            <div class="row"> <nb-card-footer>
+              <button class="cancel" nbButton status="danger" (click)="dismiss()">Cancel</button>
+            
+          </nb-card-footer>
+
+          </div>
+  
+          </nb-card-body>
+        </nb-card>
+       </nb-card-body>
+  </nb-card>
+  

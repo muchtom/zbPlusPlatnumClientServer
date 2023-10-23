@@ -16,8 +16,8 @@ const routes: Routes = [
     children:
       [
         {
-          path: 'system-parameters',
-          loadChildren: () => import('./ui/system-parameters/system-parameters.module').then(c => c.SystemParametersModule),
+          path: 'kyc',
+          loadChildren: () => import('./ui/kyc/kyc.module').then(c => c.KycModule),
         },
           // { path: '', redirectTo: '/system-parameters/home', pathMatch: 'full' },
         {

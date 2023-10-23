@@ -1,0 +1,150 @@
+<nb-card>
+    <nb-card-body>
+      <nb-stepper orientation="horizontal" disableStepNavigation>
+        <nb-step [label]="labelOne">
+          <ng-template #labelOne>First step</ng-template>
+          <h4>KYC Details</h4>
+          <form [formGroup]="SalesForm">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="name" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Id Number</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="idNumber" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="address" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Spaces</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="spaces" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Social Intrests</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="socialIntrests" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Business Intrests</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="businessIntrests" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Contact Details</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="contactDetails" placeholder="" />
+            </div>
+           
+        </form>
+          <button class="prev-button" nbButton disabled nbStepperNext>prev</button>
+          <button class="next-button" nbButton nbStepperNext>next</button>
+        </nb-step>
+        <nb-step [label]="labelTwo">
+          <ng-template #labelTwo>Second step</ng-template>
+          <h4>Business Details</h4>
+
+          <form [formGroup]="SalesForm">
+            <div class="form-group">
+                <label>Banking</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="banking" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Insurance</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="insurance" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Investments</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="investments" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>One Zb</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="spaces" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Strategy</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="strategy" placeholder="" />
+            </div>
+           
+        </form>
+         
+          <button class="prev-button" nbButton nbStepperPrevious>prev</button>
+          <button class="next-button" nbButton nbStepperNext>next</button>
+        </nb-step>
+        <nb-step label="Third step">
+          <h4>Premiums And Recommendations</h4>
+          <form [formGroup]="SalesForm">
+            <div class="form-group">
+                <label>Assets</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="assets" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Income</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="income" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Influence</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="influence" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label>Recommendations</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="recommendations" placeholder="" />
+            </div>
+           
+        </form>
+          <button class="prev-button" nbButton nbStepperPrevious>prev</button>
+          <button class="next-button" nbButton nbStepperNext>next</button>
+        </nb-step>
+        <nb-step [label]="labelFour">
+          <ng-template #labelFour>Fourth step</ng-template>
+          <h4>Due Deligents</h4>
+          <form [formGroup]="SalesForm">
+            <div class="form-group">
+                <label>Deligents</label>
+                <input type="text" row="5" nbInput fullWidth formControlName="deligents" placeholder="" />
+            </div>
+            <div class="form-group">
+                <label for="formFileSm" class="form-label">File</label>
+                <input class="form-control form-control-lg" (change)="onFileSelected($event)" id="file" formControlName="fileName" type="file" />
+                <p *ngIf="selectedFileName">{{ selectedFileName }}</p> <!-- Display the selected file name -->
+              </div>
+        </form>
+      
+          <button class="prev-button" nbButton nbStepperPrevious>prev</button>
+          <button class="next-button"  nbButton  nbStepperNext>next</button>
+        </nb-step>
+        <nb-step [label]="labelFive">
+            <ng-template #labelFive>Fifth step</ng-template>
+            <h4>Qualification</h4>
+            <form [formGroup]="SalesForm">
+                <div class="form-group">
+                    <label>Income Type</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="incomeType" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label>Assets Type</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="assetsType" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label>Influence Status</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="influenceStatus" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label>Influence Digital</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="influenceDigital" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label>Strategy</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="strategy" placeholder="" />
+                </div>
+               
+            </form>
+            <button class="prev-button" nbButton nbStepperPrevious>prev</button>
+            <div class="row"> <nb-card-footer>
+                <button class="cancel" nbButton status="danger" (click)="dismiss()">Cancel</button>
+                <button nbButton status="success"  (click)="submit()">Submit</button>
+            </nb-card-footer>
+
+            </div>
+          </nb-step>
+      </nb-stepper>
+    </nb-card-body>
+  </nb-card>

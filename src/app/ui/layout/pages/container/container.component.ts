@@ -70,17 +70,17 @@ export class ContainerComponent implements OnInit {
         this.items = [
            
           {
-              title: 'Customer Transaction',
+              title: 'Customers',
               icon: 'list',
-              link: 'customers/customer-transaction'
+              link: 'kyc/customer-detail'
           },
           {
-             title: 'Channel Pricing',
+             title: 'Invitation to Join',
              icon: 'settings',
              link: 'customers/channel-pricing'
           },
           {
-            title: 'Activities',
+            title: 'Onboarding',
             icon: 'book',
             link: 'customers/customer-detail'
           },
@@ -89,11 +89,11 @@ export class ContainerComponent implements OnInit {
           //   icon: 'book',
           //   link: 'customers/customer-payment'
           // },
-          {
-            title: 'Pending Activities',
-            icon: 'calendar',
-            link: 'admin/pending'
-          },
+          // {
+          //   title: 'Pending Activities',
+          //   icon: 'calendar',
+          //   link: 'admin/pending'
+          // },
           // {
           //   title: 'Subscriptions',
           //   icon: 'person',
@@ -106,36 +106,36 @@ export class ContainerComponent implements OnInit {
           //   link: 'admin/admin-activity'
           // },
        
-          {
-            title: 'Questionnaire',
-            icon: 'bar-chart',
-            link: 'quiz/questionnaire'
-          },
-          {
-            title: 'Redeem',
-            icon: 'book',
-            expanded: false,
-            children: [
-              {
-                title: 'Qualified Customers',
-                link: 'redeem/qualify'
-              },
-              {
-                title: 'Cashback Reedem',
-                link: 'redeem/cashback'
-              },
-              {
-                title: 'Transaction',
-                link: 'redeem/redeem-transactions'
-              }
-            ],
-          },
+          // {
+          //   title: 'Questionnaire',
+          //   icon: 'bar-chart',
+          //   link: 'quiz/questionnaire'
+          // },
+          // {
+          //   title: 'Redeem',
+          //   icon: 'book',
+          //   expanded: false,
+          //   children: [
+          //     {
+          //       title: 'Qualified Customers',
+          //       link: 'redeem/qualify'
+          //     },
+          //     {
+          //       title: 'Cashback Reedem',
+          //       link: 'redeem/cashback'
+          //     },
+          //     {
+          //       title: 'Transaction',
+          //       link: 'redeem/redeem-transactions'
+          //     }
+          //   ],
+          // },
          
-          {
-            title: 'Users',
-            icon: 'person',
-            link: 'member/member-detail'
-          }
+          // {
+          //   title: 'Users',
+          //   icon: 'person',
+          //   link: 'member/member-detail'
+          // }
 
          
         ];
@@ -147,34 +147,34 @@ export class ContainerComponent implements OnInit {
       adminAuthority.authority.includes('customer:read')) {
         this.items = [
           {
-            title: 'Activities',
+            title: 'Bio',
             icon: 'book',
-            link: 'customers/customer-detail'
+            link: 'kyc/customer-info'
           },
-          {
-            title: 'Questionnaire',
-            icon: 'bar-chart',
-            link: 'quiz/questionnaire'
-          },
-          {
-            title: 'Redeem',
-            icon: 'book',
-            expanded: false,
-            children: [
-              {
-                title: 'FAQs',
-                link: 'redeem/redeem-detail'
-              },
-              {
-                title: 'Redeem Points',
-                link: 'redeem/redeem-points'
-              },
-              {
-                title: 'Cash Back',
-                link: 'redeem/user-info'
-              }
-            ],
-          },
+          // {
+          //   title: 'Questionnaire',
+          //   icon: 'bar-chart',
+          //   link: 'quiz/questionnaire'
+          // },
+          // {
+          //   title: 'Redeem',
+          //   icon: 'book',
+          //   expanded: false,
+          //   children: [
+          //     {
+          //       title: 'FAQs',
+          //       link: 'redeem/redeem-detail'
+          //     },
+          //     {
+          //       title: 'Redeem Points',
+          //       link: 'redeem/redeem-points'
+          //     },
+          //     {
+          //       title: 'Cash Back',
+          //       link: 'redeem/user-info'
+          //     }
+          //   ],
+          // },
           // {
           //   title: 'Subscriptions',
           //   icon: 'person',

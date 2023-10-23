@@ -54,7 +54,7 @@ export class UserCustomerDataComponent implements OnInit {
     private alertService: AlertService, private dialogServic: CustomerTransactionService, private http:HttpClient){}
   ngOnInit():void {
     const user = JSON.parse(sessionStorage.getItem('user') ?? '{}');
-    this.http.get(`http://localhost:8004/zbLoyalty/getUserSpecificData/${user.id}
+    this.http.get(`http://localhost:8005/zbLoyalty/getUserSpecificData/${user.id}
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);

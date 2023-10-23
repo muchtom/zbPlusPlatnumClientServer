@@ -71,7 +71,7 @@ export class CustomerTransactionComponent implements OnInit {
   constructor( private service:ApiService,private dialogService: NbDialogService,
     private alertService: AlertService, private dialogServic: CustomerTransactionService, private http:HttpClient){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8004/zbLoyalty/allCustomers
+    this.http.get(`http://localhost:8005/zbLoyalty/allCustomers
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);

@@ -59,7 +59,7 @@ export class AdminActivityDetailComponent implements OnInit {
   constructor(private http:HttpClient, private service:ApiService,private dialogService: NbDialogService,
     private alertService: AlertService, private dialogServic: AdminDetailService){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8004/zbLoyalty/getAllActivities`).subscribe((response: any)=>{
+    this.http.get(`http://localhost:8005/zbLoyalty/getAllActivities`).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);
       

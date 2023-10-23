@@ -49,7 +49,7 @@ export class SetCustomerPaymentComponent implements OnInit {
 
       var svc;
       this.data.id ? svc= this.service.updateToUrl(`department/updateDepartment/${this.data.id}`,
-      this.SalesForm.value) : svc=this.http.post(`http://localhost:8004/zbLoyalty/addNewPayment`,
+      this.SalesForm.value) : svc=this.http.post(`http://localhost:8005/zbLoyalty/addNewPayment`,
       this.SalesForm.value)
       svc.subscribe({
         next:()=>{

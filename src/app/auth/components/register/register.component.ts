@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     
 
     ngOnInit() {
-      this.url =`http://localhost:8004/api/v1/auth/register`
+      this.url =`http://localhost:8005/api/v1/auth/register`
         this.form = this.formBuilder.group({
             firstName: ['',Validators.required],
             lastName: ['',Validators.required],

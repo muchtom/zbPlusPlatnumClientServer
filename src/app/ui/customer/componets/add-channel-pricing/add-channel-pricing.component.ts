@@ -39,8 +39,8 @@ export class AddChannelPricingComponent implements OnInit {
 
     submit(){
       var svc;
-      this.data.id ? svc= this.http.put(`http://localhost:8004/updateChannel/${this.data.id}`,
-      this.SalesForm.value) : svc=this.http.post(`http://localhost:8004/addNewChannelPrice`,
+      this.data.id ? svc= this.http.put(`http://localhost:8005/updateChannel/${this.data.id}`,
+      this.SalesForm.value) : svc=this.http.post(`http://localhost:8005/addNewChannelPrice`,
       this.SalesForm.value)
       svc.subscribe({
         next:()=>{

@@ -76,8 +76,8 @@ export class SetAdminActivityDetailComponent implements OnInit {
       
       this.SalesForm.get('zbAchiever')?.setValue(this.ropa);
       var svc;
-      this.data.id ? svc= this.http.put(`http://localhost:8004/zbLoyalty/updateActivity/${this.data.id}`,
-      this.SalesForm.value) : svc=this.http.post(`http://localhost:8004/zbLoyalty/addNewAdminActivity`,
+      this.data.id ? svc= this.http.put(`http://localhost:8005/zbLoyalty/updateActivity/${this.data.id}`,
+      this.SalesForm.value) : svc=this.http.post(`http://localhost:8005/zbLoyalty/addNewAdminActivity`,
       this.SalesForm.value)
       svc.subscribe({
         next:()=>{

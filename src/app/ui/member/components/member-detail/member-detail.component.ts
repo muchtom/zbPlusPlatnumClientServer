@@ -57,7 +57,7 @@ export class MemberDetailComponent implements OnInit {
   constructor(private service:ApiService,private dialogService: NbDialogService,
     private alertService: AlertService, private dialogServic: MemberService, private http:HttpClient){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8004/zbLoyalty/getAllMembers`).subscribe((response: any)=>{
+    this.http.get(`http://localhost:8005/zbLoyalty/getAllMembers`).subscribe((response: any)=>{
       this.allPrices = response;
       console.log(this.allPrices);
       

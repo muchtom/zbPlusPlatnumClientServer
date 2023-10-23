@@ -43,7 +43,7 @@ export class ReedemPointsComponent implements OnInit {
 
   
 
-      this.url = 'http://localhost:8004/zbLoyalty/redeemPointsNow';
+      this.url = 'http://localhost:8005/zbLoyalty/redeemPointsNow';
     
       this.form = this.formBuilder.group({
         id: ['', Validators.required],

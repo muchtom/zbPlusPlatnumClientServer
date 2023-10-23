@@ -54,7 +54,7 @@ export class RedeemDetailComponent implements OnInit {
     private alertService: AlertService, private dialogServic: RedeemService, private http:HttpClient){}
   ngOnInit():void {
     const user = JSON.parse(sessionStorage.getItem('user') ?? '{}');
-    this.http.get(`http://localhost:8004/zbLoyalty/redeem/getRedeemForSpecificUser/${user.bankAccount}
+    this.http.get(`http://localhost:8005/zbLoyalty/redeem/getRedeemForSpecificUser/${user.bankAccount}
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);

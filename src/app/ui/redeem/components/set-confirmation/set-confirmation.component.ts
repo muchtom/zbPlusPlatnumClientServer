@@ -54,8 +54,8 @@ export class SetConfirmationComponent implements OnInit {
 
 
       // var svc;
-      // this.data.id ? svc= this.http.put(`http://localhost:8004/zbLoyalty/updatePricingSubscription/${this.data.id}`,
-      // this.SalesForm.value) : svc=this.http.post(`http://localhost:8004/zbLoyalty/redeemPoints`,
+      // this.data.id ? svc= this.http.put(`http://localhost:8005/zbLoyalty/updatePricingSubscription/${this.data.id}`,
+      // this.SalesForm.value) : svc=this.http.post(`http://localhost:8005/zbLoyalty/redeemPoints`,
       // this.SalesForm.value)
       // svc.subscribe({
       //   next:()=>{

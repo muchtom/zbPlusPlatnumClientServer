@@ -60,11 +60,11 @@ zoomOut(): void {
   }
   loadReport() {
 
-  const REPORTSLINK = `http://localhost:8004/files/${this.data.name}`;
+  const REPORTSLINK = `http://localhost:8005/files/${this.data.fileName}`;
     // const REPORTSLINK = `http://192.168.10.60:7304/report/balance_sheet?fromDate=${newDate}&toDate=${newtoDate}`;
     this.reportService.getReport(REPORTSLINK).subscribe((r) => {
       this.url = `${REPORTSLINK}`;
-      this.reportName = "Sales Report  "
+      this.reportName = "Customer Report  "
     });
   }
   sendMail(): void {
