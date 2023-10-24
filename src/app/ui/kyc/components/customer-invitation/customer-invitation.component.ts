@@ -1,20 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
-import { SubscriptionService } from 'src/app/ui/subscription/service/subscription.service';
-import { SetCustomerDetailComponent } from '../set-customer-detail/set-customer-detail.component';
 import { KycService } from '../../services/kyc.service';
+import { HttpClient } from '@angular/common/http';
+import { SetCustomerDetailComponent } from '../set-customer-detail/set-customer-detail.component';
 import { IndividualCustomerDetailComponent } from '../individual-customer-detail/individual-customer-detail.component';
 import { CustomerDocumentReviewComponent } from 'src/app/ui/customer/componets/customer-document-review/customer-document-review.component';
 
 @Component({
-  selector: 'app-customer-detail',
-  templateUrl: './customer-detail.component.html',
-  styleUrls: ['./customer-detail.component.scss']
+  selector: 'app-customer-invitation',
+  templateUrl: './customer-invitation.component.html',
+  styleUrls: ['./customer-invitation.component.scss']
 })
-export class CustomerDetailComponent implements OnInit {
+export class CustomerInvitationComponent implements OnInit {
 
   settings = {
     actions: {

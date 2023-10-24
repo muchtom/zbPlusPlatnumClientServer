@@ -1,20 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
-import { SubscriptionService } from 'src/app/ui/subscription/service/subscription.service';
-import { SetCustomerDetailComponent } from '../set-customer-detail/set-customer-detail.component';
-import { KycService } from '../../services/kyc.service';
+import { OnboardCustomerService } from '../../services/onboard-customer.service';
+import { HttpClient } from '@angular/common/http';
+import { SetCustomerOnboardComponent } from '../set-customer-onboard/set-customer-onboard.component';
 import { IndividualCustomerDetailComponent } from '../individual-customer-detail/individual-customer-detail.component';
 import { CustomerDocumentReviewComponent } from 'src/app/ui/customer/componets/customer-document-review/customer-document-review.component';
 
 @Component({
-  selector: 'app-customer-detail',
-  templateUrl: './customer-detail.component.html',
-  styleUrls: ['./customer-detail.component.scss']
+  selector: 'app-onboard-customer-info',
+  templateUrl: './onboard-customer-info.component.html',
+  styleUrls: ['./onboard-customer-info.component.scss']
 })
-export class CustomerDetailComponent implements OnInit {
+export class OnboardCustomerInfoComponent implements OnInit {
 
   settings = {
     actions: {
@@ -24,16 +23,16 @@ export class CustomerDetailComponent implements OnInit {
       edit: false,
       custom:[
         
-         {
-          name:'viewRecord',
-          title:
-          '<i class="fa-regular fa-light fa-eye fa-2xs" style="color: #1660df;"></i>',
-         },
-         {
-          name:'viewDocument',
-          title:
-          '<i class="far fa-file fa-sm" style="color:#28661c;height:20px"></i>',
-         },
+        //  {
+        //   name:'viewRecord',
+        //   title:
+        //   '<i class="fa-regular fa-light fa-eye fa-2xs" style="color: #1660df;"></i>',
+        //  },
+        //  {
+        //   name:'viewDocument',
+        //   title:
+        //   '<i class="far fa-file fa-sm" style="color:#28661c;height:20px"></i>',
+        //  },
          {
           name:'edit',
           title:
@@ -63,9 +62,10 @@ export class CustomerDetailComponent implements OnInit {
 
   allDeliveries:any;
   constructor( private service:ApiService,private dialogService: NbDialogService,
-    private alertService: AlertService, private dialogServic: KycService, private http:HttpClient){}
+    private alertService: AlertService, private dialogServic: OnboardCustomerService, private http:HttpClient){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8005/zbPlusPlatnum/zviriko
+    const user = JSON.parse(sessionStorage.getItem('user') ?? '{}');
+    this.http.get(`http://localhost:8005/zbPlusPlatnum/customerInfoData/${user.idNumber}
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);
@@ -75,7 +75,7 @@ export class CustomerDetailComponent implements OnInit {
   }
 
   open(data:any){
-    const dialogRef = this.dialogService.open(SetCustomerDetailComponent,{
+    const dialogRef = this.dialogService.open(SetCustomerOnboardComponent,{
       context:{
         data:data,
       },

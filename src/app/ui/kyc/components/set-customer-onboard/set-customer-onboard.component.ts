@@ -8,11 +8,11 @@ import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { DocumentService } from 'src/app/ui/customer/service/document.service';
 
 @Component({
-  selector: 'app-set-customer-detail',
-  templateUrl: './set-customer-detail.component.html',
-  styleUrls: ['./set-customer-detail.component.scss']
+  selector: 'app-set-customer-onboard',
+  templateUrl: './set-customer-onboard.component.html',
+  styleUrls: ['./set-customer-onboard.component.scss']
 })
-export class SetCustomerDetailComponent implements OnInit {
+export class SetCustomerOnboardComponent implements OnInit {
 
   @Input() data:any;
   SalesForm!: FormGroup;
@@ -30,7 +30,7 @@ export class SetCustomerDetailComponent implements OnInit {
     
   @Output() add = new EventEmitter<string>();
   
-  constructor(private dialogService: NbDialogService,private document: DocumentService, protected dialogRef: NbDialogRef<SetCustomerDetailComponent>,private fb:FormBuilder,
+  constructor(private dialogService: NbDialogService,private document: DocumentService, protected dialogRef: NbDialogRef<SetCustomerOnboardComponent>,private fb:FormBuilder,
     private service: ApiService,private alertService: AlertService, private datePipe: DatePipe, private http:HttpClient) { 
 
       this.SalesForm = fb.group({
@@ -50,12 +50,12 @@ export class SetCustomerDetailComponent implements OnInit {
         // assets:['',Validators.required],
         // income:['',Validators.required],
         // influence:['',Validators.required],
-        recommendations:['',Validators.required],
-        incomeType:['',Validators.required],
-        assetsType:['',Validators.required],
-        influenceStatus:['',Validators.required],
-        influenceDigital:['',Validators.required],
-        deligents:['',Validators.required],
+        // recommendations:['',Validators.required],
+        // incomeType:['',Validators.required],
+        // assetsType:['',Validators.required],
+        // influenceStatus:['',Validators.required],
+        // influenceDigital:['',Validators.required],
+        // deligents:['',Validators.required],
       
 
       });
@@ -81,17 +81,16 @@ export class SetCustomerDetailComponent implements OnInit {
        
           this.alertService.showSuccess('Saved Succcessfuly');
           this.ngOnInit();
-          console.log(this.fileData.target.files[0].name)
+          // console.log(this.fileData.target.files[0].name)
           this.dismiss();
         }
       })
 
-      this.document.uploadDocument(this.fileData.target.files[0]).subscribe((res: any) => {
-        // this.alertService.showSuccess('Saved Succcessfuly');
-        console.log(res);
-        this.ngOnInit();
-        this.dismiss();
-      });
+      // this.document.uploadDocument(this.fileData.target.files[0]).subscribe((res: any) => {
+      //   console.log(res);
+      //   this.ngOnInit();
+      //   this.dismiss();
+      // });
       
     }
 
@@ -211,5 +210,6 @@ export class SetCustomerDetailComponent implements OnInit {
     },
     
   ]
+
 
 }

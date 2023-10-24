@@ -2,7 +2,7 @@
     <nb-card-body>
       <nb-stepper orientation="horizontal" disableStepNavigation>
         <nb-step [label]="labelOne">
-          <ng-template #labelOne>First step</ng-template>
+          <ng-template #labelOne></ng-template>
           <h4>KYC Details</h4>
           <form [formGroup]="SalesForm">
             <div class="form-group">
@@ -35,65 +35,36 @@
             </div>
            
         </form>
-          <button class="prev-button" nbButton disabled nbStepperNext>prev</button>
-          <button class="next-button" nbButton nbStepperNext>next</button>
+        <button class="prev-button" nbButton nbStepperPrevious>prev</button>
+        <button class="next-button" nbButton nbStepperNext>next</button>
+        <div class="row"> <nb-card-footer>
+            <button class="cancel" nbButton status="danger" (click)="dismiss()">Cancel</button>
+            <button nbButton status="success"  (click)="submit()">Submit</button>
+        </nb-card-footer>
+
+        </div>
         </nb-step>
         <nb-step [label]="labelTwo">
-          <ng-template #labelTwo>Second step</ng-template>
-          <h4>Business Details</h4>
-
-          <form [formGroup]="SalesForm">
-            <div class="form-group">
-                <label>Banking</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="banking" placeholder="" />
-            </div>
-            <div class="form-group">
-                <label>Insurance</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="insurance" placeholder="" />
-            </div>
-            <div class="form-group">
-                <label>Investments</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="investments" placeholder="" />
-            </div>
-            <div class="form-group">
-                <label>One Zb</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="spaces" placeholder="" />
-            </div>
-            <div class="form-group">
-                <label>Strategy</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="strategy" placeholder="" />
-            </div>
-           
-        </form>
+          <ng-template #labelTwo>Product and Services</ng-template>
+          <img src="assets/zbServices.png" height="319px" alt="LUCY" class="wow flipInY animated animated">
+         
          
           <button class="prev-button" nbButton nbStepperPrevious>prev</button>
           <button class="next-button" nbButton nbStepperNext>next</button>
         </nb-step>
         <nb-step label="Third step">
-          <h4>Recommendations</h4>
-          <form [formGroup]="SalesForm">
-            <!-- <div class="form-group">
-                <label>Assets</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="assets" placeholder="" />
-            </div> -->
-            <!-- <div class="form-group">
-                <label>Income</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="income" placeholder="" />
-            </div> -->
-            <!-- <div class="form-group">
-                <label>Influence</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="influence" placeholder="" />
-            </div> -->
-            <div class="form-group">
-                <label>Recommendations</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="recommendations" placeholder="" />
-            </div>
-           
-        </form>
+          <h4>Terms and Conditions</h4>
+          <img src="assets/terms.png" height="319px" alt="LUCY" class="wow flipInY animated animated">
+         
           <button class="prev-button" nbButton nbStepperPrevious>prev</button>
-          <button class="next-button" nbButton nbStepperNext>next</button>
+          <div class="row"> <nb-card-footer>
+              <button class="cancel" nbButton status="danger" (click)="dismiss()">Disagree</button>
+              <button nbButton status="success"  (click)="submit()">Agree</button>
+          </nb-card-footer>
+          </div>
+        
         </nb-step>
-        <nb-step [label]="labelFour">
+        <!-- <nb-step [label]="labelFour">
           <ng-template #labelFour>Fourth step</ng-template>
           <h4>Client Due Diligence</h4>
           <form [formGroup]="SalesForm">
@@ -112,8 +83,8 @@
       
           <button class="prev-button" nbButton nbStepperPrevious>prev</button>
           <button class="next-button"  nbButton  nbStepperNext>next</button>
-        </nb-step>
-        <nb-step [label]="labelFive">
+        </nb-step> -->
+        <!-- <nb-step [label]="labelFive">
             <ng-template #labelFive>Fifth step</ng-template>
             <h4>Qualification Criteria</h4>
             <form [formGroup]="SalesForm">
@@ -146,7 +117,7 @@
             </nb-card-footer>
 
             </div>
-          </nb-step>
+          </nb-step> -->
       </nb-stepper>
     </nb-card-body>
   </nb-card>

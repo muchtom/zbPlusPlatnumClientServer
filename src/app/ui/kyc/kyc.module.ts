@@ -10,6 +10,17 @@ import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { SetCustomerDetailComponent } from './components/set-customer-detail/set-customer-detail.component';
 import { IndividualCustomerDetailComponent } from './components/individual-customer-detail/individual-customer-detail.component';
 import { CustomerInfoComponent } from './components/customer-info/customer-info.component';
+import { CustomerInvitationComponent } from './components/customer-invitation/customer-invitation.component';
+import { OnboardCustomerComponent } from './components/onboard-customer/onboard-customer.component';
+import { SetCustomerOnboardComponent } from './components/set-customer-onboard/set-customer-onboard.component';
+import { ServiceActivationComponent } from './components/service-activation/service-activation.component';
+import { SetActivationComponent } from './components/set-activation/set-activation.component';
+import { OnboardCustomerInfoComponent } from './components/onboard-customer-info/onboard-customer-info.component';
+import { ServiceUserActivationComponent } from './components/service-user-activation/service-user-activation.component';
+import { QueryInfoComponent } from './components/query-info/query-info.component';
+import { SetQueryComponent } from './components/set-query/set-query.component';
+import { QueryUserInfoComponent } from './components/query-user-info/query-user-info.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 
 @NgModule({
@@ -17,7 +28,18 @@ import { CustomerInfoComponent } from './components/customer-info/customer-info.
     CustomerDetailComponent,
     SetCustomerDetailComponent,
     IndividualCustomerDetailComponent,
-    CustomerInfoComponent
+    CustomerInfoComponent,
+    CustomerInvitationComponent,
+    OnboardCustomerComponent,
+    SetCustomerOnboardComponent,
+    ServiceActivationComponent,
+    SetActivationComponent,
+    OnboardCustomerInfoComponent,
+    ServiceUserActivationComponent,
+    QueryInfoComponent,
+    SetQueryComponent,
+    QueryUserInfoComponent,
+    RegisterUserComponent
   ],
   imports: [
     CommonModule,

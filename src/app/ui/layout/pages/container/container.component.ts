@@ -77,23 +77,28 @@ export class ContainerComponent implements OnInit {
           {
              title: 'Invitation to Join',
              icon: 'settings',
-             link: 'customers/channel-pricing'
+             link: 'kyc/customer-invitation'
           },
           {
             title: 'Onboarding',
             icon: 'book',
-            link: 'customers/customer-detail'
+            link: 'kyc/onboard-customer'
           },
-          // {
-          //   title: 'Monthly Subscription',
-          //   icon: 'book',
-          //   link: 'customers/customer-payment'
-          // },
-          // {
-          //   title: 'Pending Activities',
-          //   icon: 'calendar',
-          //   link: 'admin/pending'
-          // },
+          {
+            title: 'Service Activation',
+            icon: 'radio',
+            link: 'kyc/service-activation'
+          },
+          {
+            title: 'Queries',
+            icon: 'calendar',
+            link: 'kyc/query-info'
+          },
+             {
+            title: 'Register Users',
+            icon: 'person',
+            link: 'kyc/kyc-user'
+          }
           // {
           //   title: 'Subscriptions',
           //   icon: 'person',
@@ -131,11 +136,7 @@ export class ContainerComponent implements OnInit {
           //   ],
           // },
          
-          // {
-          //   title: 'Users',
-          //   icon: 'person',
-          //   link: 'member/member-detail'
-          // }
+       
 
          
         ];
@@ -147,15 +148,20 @@ export class ContainerComponent implements OnInit {
       adminAuthority.authority.includes('customer:read')) {
         this.items = [
           {
-            title: 'Bio',
+            title: 'Onboarding',
             icon: 'book',
-            link: 'kyc/customer-info'
+            link: 'kyc/onboard-customer-info'
           },
-          // {
-          //   title: 'Questionnaire',
-          //   icon: 'bar-chart',
-          //   link: 'quiz/questionnaire'
-          // },
+          {
+            title: 'Service Activation',
+            icon: 'radio',
+            link: 'kyc/service-user-activation'
+          },
+          {
+            title: 'Queries',
+            icon: 'bar-chart',
+            link: 'kyc/query-user-info'
+          },
           // {
           //   title: 'Redeem',
           //   icon: 'book',
