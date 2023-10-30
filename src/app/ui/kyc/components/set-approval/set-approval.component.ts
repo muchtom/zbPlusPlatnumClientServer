@@ -1,3 +1,5 @@
+import { DatePipe } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NbDialogRef, NbDialogService } from '@nebular/theme';
@@ -5,35 +7,36 @@ import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
 
 @Component({
-  selector: 'app-set-member-detail',
-  templateUrl: './set-member-detail.component.html',
-  styleUrls: ['./set-member-detail.component.scss']
+  selector: 'app-set-approval',
+  templateUrl: './set-approval.component.html',
+  styleUrls: ['./set-approval.component.scss']
 })
-export class SetMemberDetailComponent implements OnInit {
+export class SetApprovalComponent implements OnInit {
 
   @Input() data:any;
-  PricingForm!: FormGroup;
+  SalesForm!: FormGroup;
   selectedProductCode: any;
 
   @Output() add = new EventEmitter<string>();
   
-  constructor(private dialogService: NbDialogService, protected dialogRef: NbDialogRef<SetMemberDetailComponent>,private fb:FormBuilder,
-    private service: ApiService,private alertService: AlertService) { 
+  constructor(private dialogService: NbDialogService, protected dialogRef: NbDialogRef<SetApprovalComponent>,private fb:FormBuilder,
+    private service: ApiService,private alertService: AlertService, private datePipe: DatePipe, private http:HttpClient) { 
 
-      this.PricingForm = fb.group({
-        firstName: ['',Validators.required],
+      this.SalesForm = fb.group({
+        name: ['',Validators.required],
         email: ['',Validators.required],
-        password: ['',Validators.required],
-        phoneNumber:['',Validators.required],
-        idNumber:['',Validators.required]
+        approvedBy: ['',Validators.required],
+
+      
+
       });
     }
 
     get f(){
-      return this.PricingForm && this.PricingForm.controls &&
-      this.PricingForm.controls["to"] as FormArray;
+      return this.SalesForm && this.SalesForm.controls &&
+      this.SalesForm.controls["to"] as FormArray;
     }
- 
+
 
     submit(){
 
@@ -44,10 +47,12 @@ export class SetMemberDetailComponent implements OnInit {
       // newProductDate.setDate(newProductDate.getDate()+1);
       // dataToSend.date = newProductDate.toISOString().substring(0, 10);
 
+
+
       var svc;
-      this.data.id ? svc= this.service.updateToUrl(`http://localhost:8005/zbLoyalty/updateMember/${this.data.email}`,this.PricingForm.value)
-       : svc=this.service.postToUrl(`http://localhost:8005/api/v1/auth/register`,
-       this.PricingForm.value)
+      this.data.id ? svc= this.http.put(`http://localhost:8005/zbPlusPlatnum/updateApprovals/${this.data.id}`,
+      this.SalesForm.value) : svc=this.http.post(`http://localhost:8005/zbPlusPlatnum/addNewApproval`,
+      this.SalesForm.value)
       svc.subscribe({
         next:()=>{
        
@@ -60,19 +65,17 @@ export class SetMemberDetailComponent implements OnInit {
 
     private initForm(data:any){
       data= data ||{
-        firstName: [],
-        idNumber:[],
+        name: [],
         email:[],
-        phoneNumber:[],
-        password:[],
-      
+        approvedBy:[],
+       
       }
-      return this.PricingForm = new FormGroup({
-        firstName: new FormControl(data.firstName,Validators.required),
-        phoneNumber: new FormControl(data.phoneNumber,Validators.required),
+      return this.SalesForm= new FormGroup({
+        name: new FormControl(data.name,Validators.required),
+        approvedBy: new FormControl(data.approvedBy,Validators.required),
         email: new FormControl(data.email,Validators.required),
-        idNumber: new FormControl(data.idNumber,Validators.required),
-        password: new FormControl(data.password,Validators.required)
+        // date: new FormControl(data.date,Validators.required),
+
   
       })
     }
@@ -95,13 +98,19 @@ export class SetMemberDetailComponent implements OnInit {
 
   productCodes=[
     {
-      name:'Admin',
-      value:'ADMIN'
+      name:'Free',
+      value:'FREE'
     },
     {
-      name:'Customer',
-      value:'CUSTOMER'
-    }
+      name:'Gold',
+      value:'GOLD'
+    },
+    {
+      name:'Platinum',
+      value:'PLATINUM'
+    },
+    
   ]
+
 
 }

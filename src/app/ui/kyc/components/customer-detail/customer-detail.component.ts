@@ -55,8 +55,8 @@ export class CustomerDetailComponent implements OnInit {
       idNumber: {
         title: 'Id Number'
       },
-      income: {
-        title: 'Income'
+      contactDetails: {
+        title: 'Mobile Number'
       },
     },
   };

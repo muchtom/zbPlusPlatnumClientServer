@@ -10,6 +10,7 @@ import { ServiceUserActivationComponent } from './components/service-user-activa
 import { QueryInfoComponent } from './components/query-info/query-info.component';
 import { QueryUserInfoComponent } from './components/query-user-info/query-user-info.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { ApprovalDetailsComponent } from './components/approval-details/approval-details.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,9 @@ const routes: Routes = [
   },
   {
     path:'kyc-user',component:RegisterUserComponent
+  },
+  {
+    path:'approval',component:ApprovalDetailsComponent
   }
 ];
 

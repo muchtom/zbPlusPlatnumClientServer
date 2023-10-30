@@ -36,14 +36,14 @@ export class IndividualCustomerDetailComponent implements OnInit {
           row.strategy.split(',').map((strat) => strat.trim()).join('<br/>'),
         type: 'html',
       },
-      assets:{
-        title: 'Assets',
-        filter: false,
-        valuePrepareFunction: (cell: any, row: { assets: string }) =>
-          row.assets.split(',').map((strat) => strat.trim()).join('<br/>'),
-        type: 'html',
+      // assetsType:{
+      //   title: 'Assets',
+      //   filter: false,
+      //   valuePrepareFunction: (cell: any, row: { assetsType: string }) =>
+      //     row.assetsType.split(',').map((strat) => strat.trim()).join('<br/>'),
+      //   type: 'html',
      
-      },
+      // },
       spaces: {
         title: 'Spaces',
         filter: false,
@@ -107,11 +107,27 @@ export class IndividualCustomerDetailComponent implements OnInit {
        
        
       },
-      recommendations: {
-        title: 'Recommendations', 
+      threeYearBanking: {
+        title: 'Three Year Banking Opportunities', 
         filter: false,
-        valuePrepareFunction: (cell: any, row: {   recommendations: string }) =>
-          row.recommendations.split(',').map((strat) => strat.trim()).join('<br/>'),
+        valuePrepareFunction: (cell: any, row: {   threeYearBanking: string }) =>
+          row.threeYearBanking.split(',').map((strat) => strat.trim()).join('<br/>'),
+        type: 'html',
+       
+      },
+      threeYearInsurance: {
+        title: 'Three Year Insurance Opportunities', 
+        filter: false,
+        valuePrepareFunction: (cell: any, row: {   threeYearInsurance: string }) =>
+          row.threeYearInsurance.split(',').map((strat) => strat.trim()).join('<br/>'),
+        type: 'html',
+       
+      },
+      threeYearOneZb: {
+        title: 'Three Year ONE ZB Opportunities', 
+        filter: false,
+        valuePrepareFunction: (cell: any, row: {  threeYearOneZb: string }) =>
+          row.threeYearOneZb.split(',').map((strat) => strat.trim()).join('<br/>'),
         type: 'html',
        
       },

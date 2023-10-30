@@ -1,1 +1,21 @@
-<p>register-user works!</p>
+<nb-card accent="info" >
+    <ng-template #dialog let-data let-ref="dialogRef">
+      <nb-card>
+        <nb-card-header>Template Dialog</nb-card-header>
+        <nb-card-body>{{ data }}</nb-card-body>
+        <nb-card-footer>
+          <button nbButton (click)="ref.close()">Close Dialog</button>
+        </nb-card-footer>
+      </nb-card>
+    </ng-template>
+  
+    <nb-card-header>
+     
+      User
+        </nb-card-header>
+       
+    <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="allPrices" (custom)="onCustomAction($event)"></ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  

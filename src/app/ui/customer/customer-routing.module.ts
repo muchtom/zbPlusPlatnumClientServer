@@ -5,6 +5,7 @@ import { CustomerPaymentComponent } from './componets/customer-payment/customer-
 import { MemberComponent } from './componets/member/member.component';
 import { CustomerTransactionComponent } from './componets/customer-transaction/customer-transaction.component';
 import { ChannelPricingComponent } from './componets/channel-pricing/channel-pricing.component';
+import { UserCustomerTransactionComponent } from './componets/user-customer-transaction/user-customer-transaction.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,9 @@ const routes: Routes = [
   },
   {
     path: 'channel-pricing',component:ChannelPricingComponent
+  },
+  {
+    path:'user-transaction',component:UserCustomerTransactionComponent
   }
 ];
 

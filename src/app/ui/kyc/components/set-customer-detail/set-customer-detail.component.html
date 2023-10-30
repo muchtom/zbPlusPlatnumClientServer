@@ -40,27 +40,53 @@
         </nb-step>
         <nb-step [label]="labelTwo">
           <ng-template #labelTwo>Second step</ng-template>
-          <h4>Business Details</h4>
+          <h4>Business Value Creation </h4>
 
           <form [formGroup]="SalesForm">
-            <div class="form-group">
-                <label>Banking</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="banking" placeholder="" />
-            </div>
-            <div class="form-group">
-                <label>Insurance</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="insurance" placeholder="" />
-            </div>
             <div class="form-group">
                 <label>Investments</label>
                 <input type="text" row="5" nbInput fullWidth formControlName="investments" placeholder="" />
             </div>
-            <div class="form-group">
-                <label>One Zb</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="spaces" placeholder="" />
+            <div class="row">
+
+                <div class="form-group col-md-6">
+                    <label>Banking/Current Business</label> 
+                    <input type="text" row="5" nbInput fullWidth formControlName="banking" placeholder="" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Banking/ZB Opportunities 3 Year End Game</label> 
+                    <input type="text" row="5" nbInput fullWidth formControlName="threeYearBanking" placeholder="" />
+                </div>
             </div>
+           
+            <div class="row">
+
+                <div class="form-group col-md-6">
+                    <label>Insurance/Current Business</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="insurance" placeholder="" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Insurance/ZB Opportunities 3 Year End Game</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="threeYearInsurance" placeholder="" />
+                </div>
+            </div>
+            
+          
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label>ONE ZB/ Current Business</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="oneZbs" placeholder="" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label>ONE ZB/  3 Year End Game Opportunities</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="threeYearOneZb" placeholder="" />
+                </div>
+            
+            </div>
+           
+           
             <div class="form-group">
-                <label>Strategy</label>
+                <label>Value Creation Strategy</label>
                 <input type="text" row="5" nbInput fullWidth formControlName="strategy" placeholder="" />
             </div>
            
@@ -85,7 +111,7 @@
                 <input type="text" row="5" nbInput fullWidth formControlName="influence" placeholder="" />
             </div> -->
             <div class="form-group">
-                <label>Recommendations</label>
+                <label>Invite to join/Not to invite to join</label>
                 <input type="text" row="5" nbInput fullWidth formControlName="recommendations" placeholder="" />
             </div>
            
@@ -101,10 +127,15 @@
                 <label>Diligence</label>
                 <input type="text" row="5" nbInput fullWidth formControlName="deligents" placeholder="" />
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="formFileSm" class="form-label">File</label>
                 <input class="form-control form-control-lg" (change)="onFileSelected($event)" id="file" formControlName="fileName" type="file" />
                 <p *ngIf="selectedFileName">{{ selectedFileName }}</p> 
+              </div> -->
+              <div *ngIf="!data.id" class="form-group">
+                <label for="formFileSm" class="form-label">File</label>
+                <input class="form-control form-control-lg" (change)="onFileSelected($event)" id="file" formControlName="fileName" type="file" />
+                <p *ngIf="selectedFileName">{{ selectedFileName }}</p>
               </div>
             
               
@@ -118,25 +149,25 @@
             <h4>Qualification Criteria</h4>
             <form [formGroup]="SalesForm">
                 <div class="form-group">
-                    <label>Income Type</label>
+                    <label>Income Per Year</label>
                     <input type="text" row="5" nbInput fullWidth formControlName="incomeType" placeholder="" />
                 </div>
                 <div class="form-group">
-                    <label>Assets Type</label>
+                    <label>Total Assets</label>
                     <input type="text" row="5" nbInput fullWidth formControlName="assetsType" placeholder="" />
                 </div>
                 <div class="form-group">
-                    <label>Influence Status</label>
+                    <label> Status Influence</label>
                     <input type="text" row="5" nbInput fullWidth formControlName="influenceStatus" placeholder="" />
                 </div>
                 <div class="form-group">
-                    <label>Influence Digital</label>
+                    <label>Digital Influence </label>
                     <input type="text" row="5" nbInput fullWidth formControlName="influenceDigital" placeholder="" />
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>Strategy</label>
                     <input type="text" row="5" nbInput fullWidth formControlName="strategy" placeholder="" />
-                </div>
+                </div> -->
                
             </form>
             <button class="prev-button" nbButton nbStepperPrevious>prev</button>

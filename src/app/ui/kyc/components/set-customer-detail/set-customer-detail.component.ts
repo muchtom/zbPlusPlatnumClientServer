@@ -47,6 +47,10 @@ export class SetCustomerDetailComponent implements OnInit {
         investments:['',Validators.required],
         oneZbs:['',Validators.required],
         strategy:['',Validators.required],
+        threeYearBanking:['',Validators.required],
+        threeYearInsurance:['',Validators.required],
+        threeYearOneZb:['',Validators.required],
+
         // assets:['',Validators.required],
         // income:['',Validators.required],
         // influence:['',Validators.required],
@@ -104,6 +108,7 @@ export class SetCustomerDetailComponent implements OnInit {
         // Only set the fileName value when adding a new record
         this.SalesForm.get('fileName')?.setValue(this.selectedFileName);
       }
+     
     }
   
     uploadFile() {
@@ -138,6 +143,9 @@ export class SetCustomerDetailComponent implements OnInit {
         investments:[],
         oneZbs:[],
         strategy:[],
+        threeYearBanking:[],
+        threeYearInsurance:[],
+        threeYearOneZb:[],
         // assets:[],
         // income:[],
         // influence:[],
@@ -163,6 +171,10 @@ export class SetCustomerDetailComponent implements OnInit {
         investments: new FormControl(data.investments,Validators.required),
         oneZbs: new FormControl(data.oneZbs,Validators.required),
         strategy: new FormControl(data.strategy,Validators.required),
+        threeYearBanking: new FormControl(data.threeYearBanking,Validators.required),
+        threeYearInsurance: new FormControl(data.threeYearInsurance,Validators.required),
+        threeYearOneZb: new FormControl(data.threeYearOneZb,Validators.required),
+        
         // assets: new FormControl(data.assets,Validators.required),
         // income: new FormControl(data.income,Validators.required),
         // influence: new FormControl(data.influence,Validators.required),

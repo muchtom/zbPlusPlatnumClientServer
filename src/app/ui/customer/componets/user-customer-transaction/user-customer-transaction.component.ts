@@ -1,17 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { CustomerTransactionService } from '../../service/customer-transaction.service';
-import { HttpClient } from '@angular/common/http';
 import { AddCsvComponent } from '../add-csv/add-csv.component';
 
 @Component({
-  selector: 'app-customer-transaction',
-  templateUrl: './customer-transaction.component.html',
-  styleUrls: ['./customer-transaction.component.scss']
+  selector: 'app-user-customer-transaction',
+  templateUrl: './user-customer-transaction.component.html',
+  styleUrls: ['./user-customer-transaction.component.scss']
 })
-export class CustomerTransactionComponent implements OnInit {
+export class UserCustomerTransactionComponent implements OnInit {
 
   settings = {
     actions: {
@@ -62,7 +62,8 @@ export class CustomerTransactionComponent implements OnInit {
   constructor( private service:ApiService,private dialogService: NbDialogService,
     private alertService: AlertService, private dialogServic: CustomerTransactionService, private http:HttpClient){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8005/tutorials
+    const user = JSON.parse(sessionStorage.getItem('user') ?? '{}');
+    this.http.get(`http://localhost:8005/getUserSubscriptions/${user.idNumber}
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);
@@ -104,4 +105,5 @@ export class CustomerTransactionComponent implements OnInit {
   showError(){
     this.alertService.showError("This is an error message");
   }
+
 }

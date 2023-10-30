@@ -21,6 +21,9 @@ import { QueryInfoComponent } from './components/query-info/query-info.component
 import { SetQueryComponent } from './components/set-query/set-query.component';
 import { QueryUserInfoComponent } from './components/query-user-info/query-user-info.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { CustomerTransactionComponent } from './components/customer-transaction/customer-transaction.component';
+import { ApprovalDetailsComponent } from './components/approval-details/approval-details.component';
+import { SetApprovalComponent } from './components/set-approval/set-approval.component';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { RegisterUserComponent } from './components/register-user/register-user.
     QueryInfoComponent,
     SetQueryComponent,
     QueryUserInfoComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    CustomerTransactionComponent,
+    ApprovalDetailsComponent,
+    SetApprovalComponent
   ],
   imports: [
     CommonModule,

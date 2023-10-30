@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
-import { CustomerTransactionService } from '../../service/customer-transaction.service';
+import { ApprovalService } from '../../services/approval.service';
 import { HttpClient } from '@angular/common/http';
-import { AddCsvComponent } from '../add-csv/add-csv.component';
+import { SetApprovalComponent } from '../set-approval/set-approval.component';
 
 @Component({
-  selector: 'app-customer-transaction',
-  templateUrl: './customer-transaction.component.html',
-  styleUrls: ['./customer-transaction.component.scss']
+  selector: 'app-approval-details',
+  templateUrl: './approval-details.component.html',
+  styleUrls: ['./approval-details.component.scss']
 })
-export class CustomerTransactionComponent implements OnInit {
+export class ApprovalDetailsComponent implements OnInit {
 
+ 
   settings = {
     actions: {
       columnTitle: 'Actions',
@@ -20,11 +21,11 @@ export class CustomerTransactionComponent implements OnInit {
       delete: false,
       edit: false,
       custom:[
-        //  {
-        //   name:'edit',
-        //   title:
-        //   '<i class="fa-regular fa-pen-to-square fa-2xs" style="color:#28661c3"></i>',
-        //  },
+         {
+          name:'edit',
+          title:
+          '<i class="fa-regular fa-pen-to-square fa-2xs" style="color:#28661c3"></i>',
+         },
         //  {
         //   name:'viewRecord',
         //   title:
@@ -41,28 +42,22 @@ export class CustomerTransactionComponent implements OnInit {
     },
     columns: {
       name: {
-        title: 'Name',
+        title: 'Customer Name',
       },
-      id_number: {
-        title: 'ID Number'
+      email: {
+        title: 'Email'
       },
-      phone_number:{
-        title: 'Phone Number'
+      approvedBy: {
+        title: 'Approved By'
       },
-      amount:{
-        title: 'Amount'
-      },
-      date:{
-        title: 'Date'
-      }
     },
   };
 
   allDeliveries:any;
   constructor( private service:ApiService,private dialogService: NbDialogService,
-    private alertService: AlertService, private dialogServic: CustomerTransactionService, private http:HttpClient){}
+    private alertService: AlertService, private dialogServic:ApprovalService , private http:HttpClient){}
   ngOnInit():void {
-    this.http.get(`http://localhost:8005/tutorials
+    this.http.get(`http://localhost:8005/zbPlusPlatnum/getAllApprovals
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);
@@ -72,7 +67,7 @@ export class CustomerTransactionComponent implements OnInit {
   }
 
   open(data:any){
-    const dialogRef = this.dialogService.open(AddCsvComponent,{
+    const dialogRef = this.dialogService.open(SetApprovalComponent,{
       context:{
         data:data,
       },
@@ -104,4 +99,8 @@ export class CustomerTransactionComponent implements OnInit {
   showError(){
     this.alertService.showError("This is an error message");
   }
+
+ 
+
+
 }

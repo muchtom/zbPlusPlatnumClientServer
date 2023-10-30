@@ -20,11 +20,11 @@ export class MemberDetailComponent implements OnInit {
       delete: false,
       edit: false,
       custom:[
-        //  {
-        //   name:'edit',
-        //   title:
-        //   '<i class="fa-regular fa-pen-to-square fa-2xs" style="color:#28661c3"></i>',
-        //  }
+         {
+          name:'edit',
+          title:
+          '<i class="fa-regular fa-pen-to-square fa-2xs" style="color:#28661c3"></i>',
+         }
       ],
       position: 'right'
     },
@@ -35,20 +35,14 @@ export class MemberDetailComponent implements OnInit {
       confirmSave: true
     },
     columns: {
-      id: {
-        title: 'ZbId',
-      },
       firstName: {
-        title: 'Name'
-      },
-      bankAccount:{
-        title: 'Bank Account'
+        title: 'Name',
       },
       phoneNumber:{
         title: 'Cell Number'
       },
-      role:{
-          title: 'Role'
+      email:{
+          title: 'Email'
       }
     },
   };

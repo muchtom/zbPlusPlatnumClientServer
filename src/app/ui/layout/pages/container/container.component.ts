@@ -94,28 +94,23 @@ export class ContainerComponent implements OnInit {
             icon: 'calendar',
             link: 'kyc/query-info'
           },
-             {
-            title: 'Register Users',
+          {
+            title: 'Subscriptions',
+            icon: 'bar-chart',
+            link: 'customers/customer-transaction'
+          },
+          {
+            title: 'Approvals',
+            icon: 'pie-chart',
+            link: 'kyc/approval'
+          },
+          {
+            title: 'Create Customer Profile',
             icon: 'person',
-            link: 'kyc/kyc-user'
-          }
-          // {
-          //   title: 'Subscriptions',
-          //   icon: 'person',
-          //   link: 'subscription/details'
-          // },
-        
-          // {
-          //   title: 'Activity Schedule',
-          //   icon: 'radio',
-          //   link: 'admin/admin-activity'
-          // },
+            link: 'member/member-detail'
+          },
        
-          // {
-          //   title: 'Questionnaire',
-          //   icon: 'bar-chart',
-          //   link: 'quiz/questionnaire'
-          // },
+        
           // {
           //   title: 'Redeem',
           //   icon: 'book',
@@ -162,30 +157,18 @@ export class ContainerComponent implements OnInit {
             icon: 'bar-chart',
             link: 'kyc/query-user-info'
           },
-          // {
-          //   title: 'Redeem',
-          //   icon: 'book',
-          //   expanded: false,
-          //   children: [
-          //     {
-          //       title: 'FAQs',
-          //       link: 'redeem/redeem-detail'
-          //     },
-          //     {
-          //       title: 'Redeem Points',
-          //       link: 'redeem/redeem-points'
-          //     },
-          //     {
-          //       title: 'Cash Back',
-          //       link: 'redeem/user-info'
-          //     }
-          //   ],
-          // },
-          // {
-          //   title: 'Subscriptions',
-          //   icon: 'person',
-          //   link: 'subscription/details'
-          // },
+          {
+            title: 'Subscriptions',
+            icon: 'calendar',
+            link: 'customers/user-transaction'
+          },
+          {
+            title: 'Profile',
+            icon: 'person',
+            link: 'kyc/kyc-user'
+          },
+       
+        
           // {
           //   title: 'Reedem',
           //   icon: 'book',

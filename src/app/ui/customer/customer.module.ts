@@ -16,6 +16,7 @@ import { AddChannelPricingComponent } from './componets/add-channel-pricing/add-
 import { SetHealthActivityComponent } from './componets/set-health-activity/set-health-activity.component';
 import { CustomerDocumentReviewComponent } from './componets/customer-document-review/customer-document-review.component';
 import { NgxExtendedPdfViewerModule, NgxExtendedPdfViewerService } from 'ngx-extended-pdf-viewer';
+import { UserCustomerTransactionComponent } from './componets/user-customer-transaction/user-customer-transaction.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { NgxExtendedPdfViewerModule, NgxExtendedPdfViewerService } from 'ngx-ext
     ChannelPricingComponent,
     AddChannelPricingComponent,
     SetHealthActivityComponent,
-    CustomerDocumentReviewComponent
+    CustomerDocumentReviewComponent,
+    UserCustomerTransactionComponent
   ],
   imports: [
     CommonModule,

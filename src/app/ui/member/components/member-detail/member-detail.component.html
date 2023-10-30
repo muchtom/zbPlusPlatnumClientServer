@@ -8,9 +8,14 @@
         </nb-card-footer>
       </nb-card>
     </ng-template>
+  
     <nb-card-header>
+      <div  class='right'><button nbButton size="tiny" outline status="primary" (click)="open(dialog)" fileName="messages" class="my-1 float-right">
+        <i class="fas fa-file-excel"></i>&nbsp;&nbsp;Add Member
+      </button></div>
       Users
         </nb-card-header>
+       
     <nb-card-body>
         <ng2-smart-table [settings]="settings" [source]="allPrices" (custom)="onCustomAction($event)"></ng2-smart-table>
     </nb-card-body>
