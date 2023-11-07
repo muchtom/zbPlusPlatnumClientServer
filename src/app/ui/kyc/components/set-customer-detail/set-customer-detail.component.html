@@ -43,18 +43,27 @@
           <h4>Business Value Creation </h4>
 
           <form [formGroup]="SalesForm">
-            <div class="form-group">
-                <label>Investments</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="investments" placeholder="" />
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label>Investments Cluster | Current Business</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="investments" placeholder="" />
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Investments Cluster | Opportunities and 3 Year End Game</label>
+                    <input type="text" row="5" nbInput fullWidth formControlName="threeYearInvestments" placeholder="" />
+                </div>
+
             </div>
+         
             <div class="row">
 
                 <div class="form-group col-md-6">
-                    <label>Banking/Current Business</label> 
+                    <label>Banking Cluster | Current Business</label> 
                     <input type="text" row="5" nbInput fullWidth formControlName="banking" placeholder="" />
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Banking/ZB Opportunities 3 Year End Game</label> 
+                    <label>Banking Cluster | Opportunities and 3 Year End Game</label> 
                     <input type="text" row="5" nbInput fullWidth formControlName="threeYearBanking" placeholder="" />
                 </div>
             </div>
@@ -62,11 +71,11 @@
             <div class="row">
 
                 <div class="form-group col-md-6">
-                    <label>Insurance/Current Business</label>
+                    <label>Insurance Cluster | Current Business</label>
                     <input type="text" row="5" nbInput fullWidth formControlName="insurance" placeholder="" />
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Insurance/ZB Opportunities 3 Year End Game</label>
+                    <label>Insurance Cluster | Opportunities and 3 Year End Game</label>
                     <input type="text" row="5" nbInput fullWidth formControlName="threeYearInsurance" placeholder="" />
                 </div>
             </div>
@@ -74,11 +83,11 @@
           
             <div class="row">
                 <div class="form-group col-md-6">
-                    <label>ONE ZB/ Current Business</label>
+                    <label>ONE ZB | Current Business</label>
                     <input type="text" row="5" nbInput fullWidth formControlName="oneZbs" placeholder="" />
                 </div>
                 <div class="form-group col-md-6">
-                    <label>ONE ZB/  3 Year End Game Opportunities</label>
+                    <label>ONE ZB |  Opportunities and 3 Year End Game</label>
                     <input type="text" row="5" nbInput fullWidth formControlName="threeYearOneZb" placeholder="" />
                 </div>
             
@@ -95,7 +104,28 @@
           <button class="prev-button" nbButton nbStepperPrevious>prev</button>
           <button class="next-button" nbButton nbStepperNext>next</button>
         </nb-step>
-        <nb-step label="Third step">
+        <nb-step [label]="labelThree">
+            <ng-template #labelThree>Fourth step</ng-template>
+            <h4>Client Due Diligence</h4>
+            <form [formGroup]="SalesForm">
+              <div class="form-group">
+                  <label>Diligence</label>
+                  <input type="text" row="5" nbInput fullWidth formControlName="deligents" placeholder="" />
+              </div>
+             
+                <div *ngIf="!data.id" class="form-group">
+                  <label for="formFileSm" class="form-label">File</label>
+                  <input class="form-control form-control-lg" (change)="onFileSelected($event)" id="file" formControlName="fileName" type="file" />
+                  <p *ngIf="selectedFileName">{{ selectedFileName }}</p>
+                </div>
+              
+                
+          </form>
+        
+            <button class="prev-button" nbButton nbStepperPrevious>prev</button>
+            <button class="next-button"  nbButton  nbStepperNext>next</button>
+          </nb-step>
+        <nb-step label="Fourth step">
           <h4>Recommendations</h4>
           <form [formGroup]="SalesForm">
             <!-- <div class="form-group">
@@ -119,31 +149,7 @@
           <button class="prev-button" nbButton nbStepperPrevious>prev</button>
           <button class="next-button" nbButton nbStepperNext>next</button>
         </nb-step>
-        <nb-step [label]="labelFour">
-          <ng-template #labelFour>Fourth step</ng-template>
-          <h4>Client Due Diligence</h4>
-          <form [formGroup]="SalesForm">
-            <div class="form-group">
-                <label>Diligence</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="deligents" placeholder="" />
-            </div>
-            <!-- <div class="form-group">
-                <label for="formFileSm" class="form-label">File</label>
-                <input class="form-control form-control-lg" (change)="onFileSelected($event)" id="file" formControlName="fileName" type="file" />
-                <p *ngIf="selectedFileName">{{ selectedFileName }}</p> 
-              </div> -->
-              <div *ngIf="!data.id" class="form-group">
-                <label for="formFileSm" class="form-label">File</label>
-                <input class="form-control form-control-lg" (change)="onFileSelected($event)" id="file" formControlName="fileName" type="file" />
-                <p *ngIf="selectedFileName">{{ selectedFileName }}</p>
-              </div>
-            
-              
-        </form>
       
-          <button class="prev-button" nbButton nbStepperPrevious>prev</button>
-          <button class="next-button"  nbButton  nbStepperNext>next</button>
-        </nb-step>
         <nb-step [label]="labelFive">
             <ng-template #labelFive>Fifth step</ng-template>
             <h4>Qualification Criteria</h4>

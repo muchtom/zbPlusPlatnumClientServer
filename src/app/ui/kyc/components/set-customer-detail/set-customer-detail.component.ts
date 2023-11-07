@@ -50,6 +50,7 @@ export class SetCustomerDetailComponent implements OnInit {
         threeYearBanking:['',Validators.required],
         threeYearInsurance:['',Validators.required],
         threeYearOneZb:['',Validators.required],
+        threeYearInvestments:['',Validators.required],
 
         // assets:['',Validators.required],
         // income:['',Validators.required],
@@ -60,6 +61,7 @@ export class SetCustomerDetailComponent implements OnInit {
         influenceStatus:['',Validators.required],
         influenceDigital:['',Validators.required],
         deligents:['',Validators.required],
+      
       
 
       });
@@ -146,6 +148,7 @@ export class SetCustomerDetailComponent implements OnInit {
         threeYearBanking:[],
         threeYearInsurance:[],
         threeYearOneZb:[],
+        threeYearInvestments:[],
         // assets:[],
         // income:[],
         // influence:[],
@@ -174,6 +177,7 @@ export class SetCustomerDetailComponent implements OnInit {
         threeYearBanking: new FormControl(data.threeYearBanking,Validators.required),
         threeYearInsurance: new FormControl(data.threeYearInsurance,Validators.required),
         threeYearOneZb: new FormControl(data.threeYearOneZb,Validators.required),
+        threeYearInvestments: new FormControl(data.threeYearInvestments,Validators.required),
         
         // assets: new FormControl(data.assets,Validators.required),
         // income: new FormControl(data.income,Validators.required),
