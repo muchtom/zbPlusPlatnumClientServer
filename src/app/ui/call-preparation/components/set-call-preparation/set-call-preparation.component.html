@@ -39,7 +39,47 @@
           <button class="next-button" nbButton nbStepperNext>next</button>
         </nb-step>
         <nb-step [label]="labelTwo">
-          <ng-template #labelTwo>Second step</ng-template>
+            <ng-template #labelTwo>Second step</ng-template>
+            <h4>Meeting Information</h4>
+  
+            <form [formGroup]="SalesForm">
+             <div class="row">
+                <div class="form-group col-md-6">
+                    <label>Meeting Date</label>
+                    <input row="5"  nbInput  [nbDatepicker]="meetingDate" fullWidth formControlName="meetingDate" placeholder="" />
+                    <nb-datepicker #meetingDate></nb-datepicker>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Meeting Time</label>
+                    <input row="5" nbInput      [nbTimepicker]="meetingStartTime" fullWidth formControlName="meetingTime" placeholder="" />
+                  <nb-timepicker #meetingStartTime></nb-timepicker>
+                </div>
+             </div>
+              <div class="row">
+                  <div class="form-group col-md-6">
+                      <label>Meeting Agenda</label>
+                      <input type="text" row="5" nbInput fullWidth formControlName="meetingAgenda" placeholder="" />
+                  </div>
+  
+                  <div class="form-group col-md-6">
+                      <label>Meeting Venue</label>
+                      <input type="text" row="5" nbInput fullWidth formControlName="meetingVenue" placeholder="" />
+                  </div>
+  
+              </div>
+           
+              <div class="row">
+                <label>Customer Issues</label>
+                <textarea formControlName="customerIssues" nbInput fullWidth placeholder="Add Customer Issues Information"></textarea>
+              </div>
+          </form>
+           
+            <button class="prev-button" nbButton nbStepperPrevious>prev</button>
+            <button class="next-button" nbButton nbStepperNext>next</button>
+          </nb-step>
+
+        <nb-step [label]="labelThree">
+          <ng-template #labelThree>Third step</ng-template>
           <h4>Business Value Creation </h4>
 
           <form [formGroup]="SalesForm">
@@ -107,8 +147,8 @@
           <button class="prev-button" nbButton nbStepperPrevious>prev</button>
           <button class="next-button" nbButton nbStepperNext>next</button>
         </nb-step>
-        <nb-step [label]="labelThree">
-            <ng-template #labelThree>Fourth step</ng-template>
+        <nb-step [label]="labelFour">
+            <ng-template #labelFour >Fourth step</ng-template>
             <h4>Client Due Diligence</h4>
             <form [formGroup]="SalesForm">
               <div class="form-group">
@@ -128,21 +168,10 @@
             <button class="prev-button" nbButton nbStepperPrevious>prev</button>
             <button class="next-button"  nbButton  nbStepperNext>next</button>
           </nb-step>
-        <nb-step label="Fourth step">
+        <nb-step label="Fifth Step">
+            <ng-template #labelFive >Fifth step</ng-template>
           <h4>Recommendations</h4>
           <form [formGroup]="SalesForm">
-            <!-- <div class="form-group">
-                <label>Assets</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="assets" placeholder="" />
-            </div> -->
-            <!-- <div class="form-group">
-                <label>Income</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="income" placeholder="" />
-            </div> -->
-            <!-- <div class="form-group">
-                <label>Influence</label>
-                <input type="text" row="5" nbInput fullWidth formControlName="influence" placeholder="" />
-            </div> -->
             <div class="form-group">
                 <label>Invite to join/Not to invite to join</label>
                 <input type="text" row="5" nbInput fullWidth formControlName="recommendations" placeholder="" />
@@ -153,8 +182,8 @@
           <button class="next-button" nbButton nbStepperNext>next</button>
         </nb-step>
       
-        <nb-step [label]="labelFive">
-            <ng-template #labelFive>Fifth step</ng-template>
+        <nb-step [label]="labelSix">
+            <ng-template #labelSix>Sixth step</ng-template>
             <h4>Qualification Criteria</h4>
             <form [formGroup]="SalesForm">
                 <div class="form-group">
@@ -173,11 +202,6 @@
                     <label>Digital Influence </label>
                     <input type="text" row="5" nbInput fullWidth formControlName="influenceDigital" placeholder="" />
                 </div>
-                <!-- <div class="form-group">
-                    <label>Strategy</label>
-                    <input type="text" row="5" nbInput fullWidth formControlName="strategy" placeholder="" />
-                </div> -->
-               
             </form>
             <button class="prev-button" nbButton nbStepperPrevious>prev</button>
             <div class="row"> <nb-card-footer>

@@ -109,6 +109,11 @@ export class ContainerComponent implements OnInit {
             icon: 'person',
             link: 'member/member-detail'
           },
+          {
+            title: 'Call Preparation & Reports',
+            icon: 'phone',
+            link: 'call-preparation/set-call'
+          },
        
         
           // {

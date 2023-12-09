@@ -19,7 +19,10 @@ const routes: Routes = [
           path: 'kyc',
           loadChildren: () => import('./ui/kyc/kyc.module').then(c => c.KycModule),
         },
-          // { path: '', redirectTo: '/system-parameters/home', pathMatch: 'full' },
+        {
+          path: 'call-preparation',
+          loadChildren: () =>import('./ui/call-preparation/call-preparation.module').then( c=>c.CallPreparationModule)
+        },
         {
           path: 'customers', loadChildren:()=> import('./ui/customer/customer.module').then(c => c.CustomerModule)
         },

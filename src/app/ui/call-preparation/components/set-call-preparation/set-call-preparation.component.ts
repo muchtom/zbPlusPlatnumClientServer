@@ -8,17 +8,15 @@ import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { DocumentService } from 'src/app/ui/customer/service/document.service';
 
 @Component({
-  selector: 'app-set-customer-detail',
-  templateUrl: './set-customer-detail.component.html',
-  styleUrls: ['./set-customer-detail.component.scss']
+  selector: 'app-set-call-preparation',
+  templateUrl: './set-call-preparation.component.html',
+  styleUrls: ['./set-call-preparation.component.scss']
 })
-export class SetCustomerDetailComponent implements OnInit {
+export class SetCallPreparationComponent implements OnInit {
 
   @Input() data:any;
   SalesForm!: FormGroup;
   selectedProductCode: any;
-
-  FileForm!: FormGroup;
   selectedArchievers: any;
   selectedActivity: any;
   zbActivities!: any[];
@@ -30,7 +28,7 @@ export class SetCustomerDetailComponent implements OnInit {
     
   @Output() add = new EventEmitter<string>();
   
-  constructor(private dialogService: NbDialogService,private document: DocumentService, protected dialogRef: NbDialogRef<SetCustomerDetailComponent>,private fb:FormBuilder,
+  constructor(private dialogService: NbDialogService,private document: DocumentService, protected dialogRef: NbDialogRef<SetCallPreparationComponent>,private fb:FormBuilder,
     private service: ApiService,private alertService: AlertService, private datePipe: DatePipe, private http:HttpClient) { 
 
       this.SalesForm = fb.group({
@@ -58,6 +56,11 @@ export class SetCustomerDetailComponent implements OnInit {
         influenceStatus:['',Validators.required],
         influenceDigital:['',Validators.required],
         deligents:['',Validators.required],
+        meetingDate:['',Validators.required],
+        meetingTime:['',Validators.required],
+        meetingVenue:['',Validators.required],
+        meetingAgenda:['',Validators.required],
+        customerIssues:['',Validators.required]
       });
 
 
@@ -70,11 +73,38 @@ export class SetCustomerDetailComponent implements OnInit {
 
 
     submit(){
+
+      if (!this.SalesForm || !this.SalesForm.value || !this.SalesForm.value.meetingDate) {
+        return;
+      }
     
+      const dataToSend = { ...this.SalesForm.value };
+    
+      const meetingDate = new Date(this.SalesForm.value.meetingDate);
+      let meetingTime = null;
+    
+      // Validate and parse meeting start time
+      if (this.SalesForm.value.meetingTime instanceof Date) {
+        meetingTime = this.SalesForm.value.meetingStartTime;
+      } else {
+        const startTime = Date.parse(this.SalesForm.value.meetingTime);
+        if (!isNaN(startTime)) {
+          meetingTime = new Date(startTime);
+        } else {
+          console.error('Invalid meeting start time');
+        }
+      }
+    
+      // Format and assign values
+      dataToSend.meetingDate = meetingDate.toISOString().substring(0, 10);
+    
+      if (meetingTime !== null) {
+        dataToSend.meetingTime = meetingTime.toISOString().substring(11, 19);
+      }
+
       var svc;
-      this.data.id ? svc= this.http.put(`http://localhost:8005/zbPlusPlatnum/updateCustomerKycDetails/${this.data.id}`,
-      this.SalesForm.value) : svc=this.http.post(`http://localhost:8005/zbPlusPlatnum/addNewCustomerDetailInformation`,
-      this.SalesForm.value)
+      this.data.id ? svc= this.http.put(`http://localhost:8005/zbPlusPlatnum/updateCustomerKycDetails/${this.data.id}`,dataToSend)
+       : svc=this.http.post(`http://localhost:8005/zbPlusPlatnum/addNewCustomerDetailInformation`,dataToSend)
       svc.subscribe({
         next:()=>{
        
@@ -148,6 +178,11 @@ export class SetCustomerDetailComponent implements OnInit {
         influenceDigital:[],
         deligents:[],
         fileName:[],
+        meetingDate:[],
+        meetingTime:[],
+        meetingVenue:[],
+        meetingAgenda:[],
+        customerIssues:[],
        
       }
       return this.SalesForm= new FormGroup({
@@ -175,6 +210,11 @@ export class SetCustomerDetailComponent implements OnInit {
         influenceDigital: new FormControl(data.influenceDigital,Validators.required),
         deligents: new FormControl(data.deligents,Validators.required),
         fileName: new FormControl(data.fileName,Validators.required),
+        meetingDate: new FormControl(data.meetingDate,Validators.required),
+        meetingTime: new FormControl(data.meetingTime,Validators.required),
+        meetingVenue: new FormControl(data.meetingVenue,Validators.required),
+        meetingAgenda: new FormControl(data.meetingAgenda,Validators.required),
+        customerIssues: new FormControl(data.customerIssues,Validators.required)
       })
     }
 
