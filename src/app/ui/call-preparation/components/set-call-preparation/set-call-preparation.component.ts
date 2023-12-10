@@ -6,6 +6,7 @@ import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { DocumentService } from 'src/app/ui/customer/service/document.service';
+import { SetCustomerDetailComponent } from 'src/app/ui/kyc/components/set-customer-detail/set-customer-detail.component';
 
 @Component({
   selector: 'app-set-call-preparation',
@@ -39,8 +40,8 @@ export class SetCallPreparationComponent implements OnInit {
         socialIntrests:['',Validators.required],
         businessIntrests:['',Validators.required],
         contactDetails:['',Validators.required],
-        banking:['',Validators.required],
         fileName:['',Validators.required],
+        banking:['',Validators.required],
         insurance:['',Validators.required],
         investments:['',Validators.required],
         oneZbs:['',Validators.required],
@@ -72,56 +73,58 @@ export class SetCallPreparationComponent implements OnInit {
     }
 
 
-    submit(){
-
-      if (!this.SalesForm || !this.SalesForm.value || !this.SalesForm.value.meetingDate) {
-        return;
-      }
+    submit() {
+      // const meetingDateValue = this.SalesForm.value.meetingDate;
+      // const meetingTimeValue = this.SalesForm.value.meetingTime;
+      // const dataToSend: any = {};
     
-      const dataToSend = { ...this.SalesForm.value };
+      // if (meetingDateValue && typeof meetingDateValue === 'object') {
+      //   const meetingDate = new Date(meetingDateValue);
+      //   dataToSend.meetingDate = meetingDate.toISOString().substring(0, 10);
+      // } else {
+      //   console.error('Invalid meeting date');
+      // }
     
-      const meetingDate = new Date(this.SalesForm.value.meetingDate);
-      let meetingTime = null;
+      // if (meetingTimeValue && typeof meetingTimeValue === 'object') {
+      //   let meetingTime = meetingTimeValue;
+      //   if (!(meetingTimeValue instanceof Date)) {
+      //     const startTime = Date.parse(meetingTimeValue);
+      //     if (!isNaN(startTime)) {
+      //       meetingTime = new Date(startTime);
+      //     } else {
+      //       console.error('Invalid meeting start time');
+      //     }
+      //   }
     
-      // Validate and parse meeting start time
-      if (this.SalesForm.value.meetingTime instanceof Date) {
-        meetingTime = this.SalesForm.value.meetingStartTime;
-      } else {
-        const startTime = Date.parse(this.SalesForm.value.meetingTime);
-        if (!isNaN(startTime)) {
-          meetingTime = new Date(startTime);
-        } else {
-          console.error('Invalid meeting start time');
-        }
-      }
+      //   dataToSend.meetingTime = meetingTime.toISOString().substring(11, 19);
+      // } else {
+      //   console.error('Invalid meeting time');
+      // }
     
-      // Format and assign values
-      dataToSend.meetingDate = meetingDate.toISOString().substring(0, 10);
-    
-      if (meetingTime !== null) {
-        dataToSend.meetingTime = meetingTime.toISOString().substring(11, 19);
-      }
-
       var svc;
-      this.data.id ? svc= this.http.put(`http://localhost:8005/zbPlusPlatnum/updateCustomerKycDetails/${this.data.id}`,dataToSend)
-       : svc=this.http.post(`http://localhost:8005/zbPlusPlatnum/addNewCustomerDetailInformation`,dataToSend)
+      this.data.id
+        ? (svc = this.http.put(`http://localhost:8005/zbPlusPlatnum/updateCustomerKycDetails/${this.data.id}`,this.SalesForm.value))
+        : (svc = this.http.post(`http://localhost:8005/zbPlusPlatnum/addNewCustomerDetailInformation`,this.SalesForm.value));
       svc.subscribe({
-        next:()=>{
-       
+        next: () => {
           this.alertService.showSuccess('Saved Succcessfuly');
           this.ngOnInit();
-          console.log(this.fileData.target.files[0].name)
+          console.log(this.fileData.target.files[0].name);
           this.dismiss();
-        }
-      })
-
+        },
+        error: (error) => {
+          console.error('Error:', error);
+          // Handle error (log, display, etc.)
+        },
+      });
+    
       this.document.uploadDocument(this.fileData.target.files[0]).subscribe((res: any) => {
         console.log(res);
         this.ngOnInit();
         this.dismiss();
       });
-      
     }
+    
 
     onFileSelected(event: any): void {
       const file = event.target.files[0];
@@ -226,6 +229,7 @@ export class SetCallPreparationComponent implements OnInit {
     this.data= {...this.data};
     this.initForm(this.data);
     console.log(this.data)
+
   }
   myForm = new FormGroup({
     names: new FormControl(''),
