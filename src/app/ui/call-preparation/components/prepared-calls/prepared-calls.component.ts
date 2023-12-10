@@ -1,19 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { ApiService } from 'src/app/shared/shared/services';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
-import { KycService } from '../../services/kyc.service';
-import { HttpClient } from '@angular/common/http';
-import { SetCustomerDetailComponent } from '../set-customer-detail/set-customer-detail.component';
-import { IndividualCustomerDetailComponent } from '../individual-customer-detail/individual-customer-detail.component';
-import { CustomerDocumentReviewComponent } from 'src/app/ui/customer/componets/customer-document-review/customer-document-review.component';
+import { KycService } from 'src/app/ui/kyc/services/kyc.service';
+import { SetCallPreparationComponent } from '../set-call-preparation/set-call-preparation.component';
+import { CallPreparationService } from '../../services/call-preparation.service';
 
 @Component({
-  selector: 'app-customer-invitation',
-  templateUrl: './customer-invitation.component.html',
-  styleUrls: ['./customer-invitation.component.scss']
+  selector: 'app-prepared-calls',
+  templateUrl: './prepared-calls.component.html',
+  styleUrls: ['./prepared-calls.component.scss']
 })
-export class CustomerInvitationComponent implements OnInit {
+export class PreparedCallsComponent implements OnInit {
 
   settings = {
     actions: {
@@ -23,16 +22,6 @@ export class CustomerInvitationComponent implements OnInit {
       edit: false,
       custom:[
         
-         {
-          name:'viewRecord',
-          title:
-          '<i class="fa-regular fa-light fa-eye fa-2xs" style="color: #1660df;"></i>',
-         },
-         {
-          name:'viewDocument',
-          title:
-          '<i class="far fa-file fa-sm" style="color:#28661c;height:20px"></i>',
-         },
          {
           name:'edit',
           title:
@@ -54,27 +43,27 @@ export class CustomerInvitationComponent implements OnInit {
       idNumber: {
         title: 'Id Number'
       },
-      income: {
-        title: 'Income'
+      contactDetails: {
+        title: 'Mobile Number'
       },
     },
   };
 
   allDeliveries:any;
   constructor( private service:ApiService,private dialogService: NbDialogService,
-    private alertService: AlertService, private dialogServic: KycService, private http:HttpClient){}
+    private alertService: AlertService, private dialogServic: CallPreparationService, private http:HttpClient){}
   ngOnInit():void {
     this.http.get(`http://localhost:8005/zbPlusPlatnum/zviriko
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);
+      
       this.allDeliveries;
-      this.showWarning();
     })
   }
 
   open(data:any){
-    const dialogRef = this.dialogService.open(SetCustomerDetailComponent,{
+    const dialogRef = this.dialogService.open(SetCallPreparationComponent,{
       context:{
         data:data,
       },
@@ -87,36 +76,12 @@ export class CustomerInvitationComponent implements OnInit {
 
   onCustomAction(event:any){
     switch(event.action){
-      case 'viewDocument':
-        this.openCustomerDocument(event.data)
-        break;
-        case 'viewRecord':
-          this.openCustomerDetails(event.data)
-          break;
           case 'edit':
             this.edit(event.data)
             break;
     }
   }
-  openCustomerDetails(data:any){
-    console.log(data);
-    
-    const dialogRef = this.dialogService.open(IndividualCustomerDetailComponent,{
-      context: {
-        data:data
-      }
-    })
 
-  }
-  openCustomerDocument(data:any){
-    console.log(data);
-    
-    const dialogRef = this.dialogService.open(CustomerDocumentReviewComponent,{
-      context: {
-        data:data
-      }
-    })
-  }
   edit(data:any){
     const selectedItem = data
     console.log(selectedItem);
@@ -131,10 +96,4 @@ export class CustomerInvitationComponent implements OnInit {
   showError(){
     this.alertService.showError("This is an error message");
   }
-
-  showWarning(){
-    this.alertService.showWarning("If the customer already exists check in the customer module")
-  }
- 
-
 }

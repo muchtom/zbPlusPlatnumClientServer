@@ -14,4 +14,8 @@ export class AlertService {
   showError(message: string) {
     this.toastrService.show(message, 'Error', { status: 'danger' });
   }
+
+  showWarning(message: string) {
+    this.toastrService.show(message, 'Warning', { status: 'warning' });
+  }
 }

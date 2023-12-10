@@ -114,6 +114,11 @@ export class ContainerComponent implements OnInit {
             icon: 'phone',
             link: 'call-preparation/set-call'
           },
+          {
+            title: 'Prepared Calls',
+            icon: 'star',
+            link: 'call-preparation/prepared-calls'
+          },
        
         
           // {

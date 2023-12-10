@@ -8,12 +8,14 @@ import { NbButtonModule, NbTabsetModule, NbAlertModule, NbInputModule, NbStepper
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AlertService } from 'src/app/shared/shared/services/alert.service';
 import { CallPreparationInvitationComponent } from './components/call-preparation-invitation/call-preparation-invitation.component';
+import { PreparedCallsComponent } from './components/prepared-calls/prepared-calls.component';
 
 
 @NgModule({
   declarations: [
     SetCallPreparationComponent,
-    CallPreparationInvitationComponent
+    CallPreparationInvitationComponent,
+    PreparedCallsComponent
   ],
   imports: [
     CommonModule,

@@ -132,6 +132,7 @@ export class CustomerDetailComponent implements OnInit {
   showError(){
     this.alertService.showError("This is an error message");
   }
+  
 
  
 

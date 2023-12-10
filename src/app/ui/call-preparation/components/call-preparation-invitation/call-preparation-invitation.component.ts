@@ -66,6 +66,7 @@ export class CallPreparationInvitationComponent implements OnInit {
     `).subscribe((response: any)=>{
       this.allDeliveries = response;
       console.log(this.allDeliveries);
+      this.showWarning()
       
       this.allDeliveries;
     })
@@ -92,11 +93,14 @@ export class CallPreparationInvitationComponent implements OnInit {
     
   }
   showSuccess(){
-    this.alertService.showSuccess("This is a success message");
+    this.alertService.showSuccess("If the  customer already exists kindly search the customer in Prepared Calls");
   }
 
   showError(){
     this.alertService.showError("This is an error message");
+  }
+  showWarning(){
+    this.alertService.showWarning("If the  customer already exists kindly search the customer in Prepared Calls")
   }
 
  
